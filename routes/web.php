@@ -92,7 +92,12 @@ Route::get('answer', function () {
 Route::get('/questionnaire', function () {
     return view('/questionnaire');
 });
+
 Auth::routes();
+
+Auth::id();
+
+Auth::check();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
