@@ -4,6 +4,7 @@
 @include('layouts.header')
 @include('layouts.subheader')
 @section('contents')
+@foreach($user_items as $user_items)
     <img src="{{ url($user_items->image) }}">
     <video src="{{ url($user_items->movie) }}">
     <tr>
@@ -26,4 +27,5 @@
         <td>経歴</td>
         <td>{{$user_items->career}}</td>
     </tr>
+@endforeach
 @endsection

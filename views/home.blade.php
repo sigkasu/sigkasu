@@ -1,23 +1,23 @@
-@extends('layouts.app')
+<!-- H1とかH2は適当なので変えちゃって大丈夫です -->
+@extends('layouts.homelayouts')
 
-@section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Dashboard') }}</div>
+@section('title', 'ホーム画面')
 
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
-
-                    {{ __('You are logged in!') }}
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+@include('layouts.header')
+@section('contents')
+<div class="question"><a href="question">候補者アンケート</a></div>
+<h1>候補者一覧</h1>
+@foreach($people_items as $item)
+    <tr>
+        <td><img src="{{ url($item->image) }}"></td>
+        <td>{{$item->name}}</td>
+    </tr>
+@endforeach
+<h1>政党一覧</h1>
+@foreach($party_items as $item)
+    <tr>
+        <td><a href="{{ url($item->url) }}"><img src="{{ url($item->image) }}"></a></td>
+        <td><a href="{{ url($item->url) }}">{{$item->party}}</a></td>
+    </tr>
+@endforeach
 @endsection

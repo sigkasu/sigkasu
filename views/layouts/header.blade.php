@@ -1,4 +1,5 @@
 @section('header')
+
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="example.css">
@@ -41,7 +42,7 @@
         <a>第４９回衆議院選挙</a>
     </h1>
     <ul class="main-header">
-        <li class="main-header-item"><a href="/home1">HOME</a></li>
+        <li class="main-header-item"><a href="/home">HOME</a></li>
         <li class="main-header-item"><a href="/area">地域</a></li>
         <li class="main-header-item">
             <select name="selection_list">
@@ -63,7 +64,9 @@
                 <option value="#">社民党</option>
             </select>
         </li>
+        @auth
         <li class="main-header-item"><a href="mypage">マイページ</a></li>
+        @endauth
         <li class="main-header-item"><a href="support">お問い合わせ</a></li>
     </ul>
 </header>
