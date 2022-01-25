@@ -1,0 +1,391 @@
+@charset "utf-8";
+/*mypage.blade.phpとcreate.blade.phpの記述*/
+
+
+/*===================== 共通 ======================*/
+
+body {
+    background-image: url('../triangleliblue.jpg');
+    background-size: cover;
+
+    /* 画像をタイル状に繰り返し表示しない */
+    background-repeat: no-repeat;
+   
+    /* コンテンツの高さが画像の高さより大きい時、動かないように固定 */
+    background-attachment: fixed;
+}
+
+/*候補者名*/
+.overall h1 {
+    margin: 40px auto 0px;
+
+    text-align: center;
+}
+
+/*表全体*/
+table {
+    border-collapse: collapse;
+    /*border-collapse:隣り合ったテーブルセルの間隔を指定するプロパティ
+      collapse:隣接するボーダーラインを重ねあわせて表示するよう指定する*/
+
+    width: 90%;
+    margin: auto;
+}
+
+/*表内の装飾*/
+table tr, table td {
+    line-height: 190%;
+    
+    border: solid 2px black;
+}
+table td {
+    padding: 10px 20px;
+}
+.table tr, table td:nth-child(1) {
+  width:150px;
+}
+
+/*「自己紹介＆公約」＆「出馬履歴」*/
+.sentence {
+    display: flex;
+    
+}
+
+/*自己紹介＆公約全体*/
+.introduction {
+    display: inline-block;
+
+    width: 45%;
+    margin: 80px 0px 80px 50px;
+    padding: 10px 20px 10px 20px;
+
+    border:solid 2px black;
+
+    line-height: 190%;
+    /*行ボックスの高さを設定*/
+    word-wrap: break-word;
+    /*語の途中で折り返さないと行ボックスの幅からあふれてしまうときのみ、その単語の途中で折り返します*/
+}
+
+/*自己紹介＆公約のタイトル*/
+.title1 {
+    border-bottom: solid 2px black;
+}
+
+/*出馬履歴全体*/
+.histories {
+    display: inline-block;
+
+    width: 45%;
+    margin: 80px 50px 80px 50px;
+    padding: 10px 20px 20px 20px;
+
+    border:solid 2px black;
+
+    line-height: 190%;
+    word-wrap: break-word;
+}
+
+/*出馬履歴のタイトル*/
+.title2 {
+    border-bottom: solid 2px black;
+}
+
+/*フォームのオートコンプリート使用時に背景色を変更しないようにする*/
+input:-webkit-autofill {
+    box-shadow: 0 0 0 1000px white inset;
+}
+
+
+/*================ mypage.blade.php ===============*/
+
+/*新規作成ボタン*/
+.new {
+    position: absolute;
+	top: 53%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+
+    text-align: center;
+    font-size: 140%;
+}
+
+.btn-new1 {
+    position: absolute;
+	top: 63%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+
+    padding: 5px 15px;
+    
+    border: none;
+    border-radius: 25px;
+    color: #fafafa;
+    background: #00bcd4;
+    
+    font-size: 220%;
+}
+.btn-new:hover {
+    color: #fafafa;
+    background: #116a6a;
+}
+
+/*編集ボタン１*/
+.btn-editing1 {
+    position: absolute;
+	top: 60%;
+	left: 22%;
+	transform: translate(-50%, -50%);
+
+    padding: 5px 15px;
+    
+    border: none;
+    color: #fafafa;
+    background: #00bcd4;
+    
+    font-size: 150%;
+}
+.btn-editing1:hover {
+    color: #fafafa;
+    background: #116a6a;
+}
+
+/*紹介部分*/
+.overall {
+    display: inline-block;
+
+    margin: 120px 250px;
+
+    border: 5px solid black;
+    background-color: #fafafa;
+}
+
+/*候補者の顔写真＆紹介動画*/
+.images {
+    display: flex;
+
+    padding: 10px 10px;
+}
+
+/*候補者の顔写真*/
+.images img {
+    display: inline-block;
+ 
+    width: 190px;
+    height: 230px;
+    margin: 50px 50px 70px 80px;
+        
+    border: 3px solid black;
+
+    object-fit: cover; 
+    /*画像がコンテナーいっぱいに余白が出ることなくフィットされ、縦横比は維持し、
+    位置は縦横中央になり、はみ出す部分はトリミングされている*/
+    flex-wrap: wrap;
+}
+
+/*候補者の紹介動画*/
+.images video {
+    display: inline-block;
+
+    width: 400px;
+    height: 227px;
+    margin: 50px 70px 70px 190px;
+
+    border: 3px solid black;
+}
+
+/*経歴*/
+.mypage-career {
+    height: 430px;
+    overflow-y: scroll;
+}
+
+/*自己紹介＆公約*/
+.mypage-introductions {
+    padding: 15px 0px 0px;
+    height: 415px;
+    overflow-y: scroll;
+}
+
+/*出馬履歴*/
+.mypage-histories {
+    padding: 15px 0px 0px;
+    height: 415px;
+    overflow-y: scroll;
+}
+
+/*mypage.blade.php　編集ボタン２*/
+.btn-editing2 {
+    margin: 0px 465px 50px;
+    padding: 5px 15px;
+
+    border: none;
+    color: #fafafa;
+    background: #00bcd4;
+    
+    text-align: center;
+    font-size: 150%;
+}
+.btn-editing2:hover {
+    color: #fafafa;
+    background: #116a6a;
+}
+
+
+/*================ create.blade.php ===============*/
+
+/*候補者の顔写真＆紹介動画*/
+.create_images {
+    display: flex;
+    
+    padding: 10px 10px;
+}
+
+/*候補者の顔写真*/
+.image_text {
+    display: inline-block;
+
+    width: 190px;
+    height: 230px;
+    margin: 30px 50px 70px 80px;
+    line-height:75px;
+    
+    border: 3px solid black;
+    
+    text-align:center;
+    object-fit: cover; 
+    /*画像がコンテナーいっぱいに余白が出ることなくフィットされ、縦横比は維持し、
+    位置は縦横中央になり、はみ出す部分はトリミングされている*/
+    flex-wrap: wrap;
+}
+
+/*写真と動画を挿入*/
+input[type="file"] {
+    position: absolute;
+    opacity: 0;
+    visibility: hidden;
+}
+
+/*写真・動画選択*/
+label {
+    display: inline-block;
+    
+    padding: 0px 15px;
+
+    color: #fff;
+    background: rgb(155, 188, 190);
+    
+    cursor: pointer;
+}
+
+/*候補者の紹介動画*/
+.image_movie {
+    display: inline-block;
+
+    width: 400px;
+    height: 230px;
+    margin: 30px 70px 70px 190px;
+    line-height:75px;
+    
+    border: 3px solid black;
+
+    text-align:center;
+}
+
+/*政党名*/
+.create-party {
+    padding: 0px 10px;
+    width: 200px;
+}
+
+/*性別（女）*/
+.woman {
+    margin: auto auto auto 15px;
+}
+
+/*経歴*/
+.create-career {
+    resize: none;
+    
+    width: 550px;
+    height: 300px;
+    padding: 10px 20px 20px 20px;
+
+    font-size: 130%;
+}
+
+/*自己紹介＆公約*/
+.create-introductions {
+    display: inline-block;
+    resize: none;
+
+    width: 340px;
+    height: 400px;
+    margin: 40px 0px 30px 20px;
+    padding: 10px 20px 20px 20px;
+    
+    border:solid 2px black;
+
+    font-size: 120%;
+    
+    line-height: 190%;
+    /*行ボックスの高さを設定*/
+    word-wrap: break-word;
+    /*語の途中で折り返さないと行ボックスの幅からあふれてしまうときのみ、その単語の途中で折り返します*/
+}
+
+/*出馬履歴*/
+.create-histories {
+    display: inline-block;
+    resize: none;
+
+    width: 340px;
+    height: 400px;
+    margin: 40px 0px 30px 20px;
+    padding: 10px 20px 20px 20px;
+    
+    border:solid 2px black;
+
+    font-size: 120%;
+
+    line-height: 190%;
+    word-wrap: break-word;
+}
+
+/*作成・戻るボタン*/
+.text-center {
+    margin: 10px auto 50px;
+}
+
+/*作成ボタン*/
+.btn-create {
+    padding: 5px 15px;
+    margin: 30px 80px 0px 375px;
+    
+    border: none;
+    border-radius: 25px;
+    color: #fafafa;
+    background: #00bcd4;
+    
+    font-size: 150%;
+}
+.btn-create:hover {
+    color: #fafafa;
+    background: #116a6a;
+}
+
+/*戻るボタン*/
+.btn-return {
+    padding: 5px 15px;
+    
+    border: none;
+    border-radius: 25px;
+    color: #fafafa;
+    background: #00bcd4;
+    
+    font-size: 150%;
+}
+.btn-return:hover {
+    color: #fafafa;
+    background: #116a6a;
+}

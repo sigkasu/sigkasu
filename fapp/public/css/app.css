@@ -1,0 +1,218 @@
+@charset "utf-8";
+/*toppage.blade.phpの記述↓*/
+
+
+body {
+    background-image: url('../triangle.png');
+    background-size: cover;
+}
+
+/*「管理者の方はコチラ」と「お問い合わせ」の文字の色及び下線*/
+.sub a {
+    text-decoration: none;
+
+	color: #fafafa;
+}
+.sub a:hover {
+    text-decoration: underline;
+
+    color: rgb(57, 8, 255);
+}
+
+/*「管理者の方はコチラ」*/
+.Admin {
+    position: relative;
+    z-index: 3;
+
+    margin: 30px;
+    float: left;
+    padding: 0px 30px;
+    overflow: hidden;
+    /*overflow:要素の内容が多すぎてブロック内に収まらない場合にどうするかを設定するもの。*/
+
+    border: solid 4px #160940;
+    background-color: #00bcd4;
+
+    text-align: center;
+    text-decoration: none;
+    font-weight: bold;
+}
+.Admin:after {
+    position: absolute;
+    z-index: -1;
+
+    width: 100%;
+    height: 0;
+    content: "";
+    top: 50%;
+    left: 50%;
+
+    background : #FFF;
+
+    opacity: 0;
+    /*opacity:要素の不透明度を設定。不透明度は要素の裏にあるコンテンツが隠れる度合いであり、透明度の逆*/
+
+    transform: translateX(-50%) translateY(-50%) rotate(45deg);
+    transition: .2s;
+}
+.Admin:hover {
+    color: rgb(190, 230, 161);
+}
+.Admin:hover:after {
+    height: 215%;
+
+    opacity: 1;
+
+    background : #bfdfdf;
+}
+.Admin:active:after {
+    height: 265%;
+
+    opacity: 1;
+}
+
+
+/*お問い合わせ*/
+.inquiry {
+    position: fixed;
+    z-index: 3;
+
+    padding: 0px 30px;
+    margin: 30px 10px;
+    top: 10;
+    right: 40;
+    overflow: hidden;
+
+    border: solid 4px #160940;
+    background-color: #00bcd4;
+
+    text-align: center;
+    text-decoration: none;
+    font-weight: bold;
+}
+.inquiry:after {
+    position: absolute;
+    z-index: -1;
+
+    width: 100%;
+    height: 0;
+    content: "";
+    top: 50%;
+    left: 50%;
+
+    border: solid 1px #160940;
+    background : #bfdfdf;
+
+    opacity: 0; 
+
+    transform: translateX(-50%) translateY(-50%) rotate(45deg);
+    transition: .2s;
+}
+.inquiry:hover {
+    color: rgb(0, 0, 0);
+}
+.inquiry:hover:after {
+    height: 150%;
+
+    opacity: 1;
+}
+.inquiry:active:after {
+    height: 200%;
+
+    opacity: 1;
+}
+
+
+/*画面のメイン部分*/
+.main{
+    padding: 150px;
+
+    text-align: center;
+}
+
+/*メインタイトル*/
+.main h1 {
+    margin: 120px;
+    
+    color: #0c0c0c;
+
+    text-align: center;
+    font-family: Yu Mincho;
+    font-weight: 400;
+    font-size: 100px;
+}
+
+/*メインタイトル以外のメイン部分*/
+.boxA {    
+    width: 50%;
+    margin: 0 auto;
+
+
+    border: 8px double #090a0c;
+    background-color: #dff3f5;
+    
+    text-align: center;
+    font-size: 25px;
+}
+
+/*「有権者の方はコチラ」と「候補者の方はコチラ」の文字の色及び下線*/
+.boxA h2 {
+    color: #000003;
+
+    text-decoration: none;
+}
+.boxA h2:hover {
+    color: rgb(57, 8, 255);
+
+    text-decoration: underline;
+}
+
+
+/*「新規登録」と「ログイン」の文字の色及び下線*/
+.boxA a {
+    color: #000000;
+    
+    text-decoration: none;
+}
+.boxA a:hover {
+    color: rgb(57, 8, 255);
+    
+    text-decoration: underline;
+}
+
+
+/*新規登録／ログイン*/
+p { 
+    display: none;
+}
+input[type="checkbox"] {
+    display: none
+}
+:checked + p {
+    display: block;
+}
+
+
+/*選挙に関する情報*/
+.info {    
+    position: relative;
+
+    width: 60%;
+    margin: auto;
+    margin-bottom: 10%;
+    padding-left: 10px;
+    
+    
+    border: 10px double #090a0c;
+    background-color: #fafafa;
+
+    text-align: left;
+    font-size: 15px;
+}
+
+/*選挙に関する情報のタイトル*/
+.info h2{
+    width: 890px; 
+
+    border-bottom: solid 3px black;
+}

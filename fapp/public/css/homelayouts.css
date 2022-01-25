@@ -1,0 +1,131 @@
+@charset "utf-8";
+/*home1.blade.phpなどの記述*/
+
+
+body {
+    background-size: cover;
+    
+    min-height: 100vh;
+}
+
+
+/*候補者一覧,政党一覧　タイトル*/
+h1 {
+    margin-top: 20px;
+
+    text-align: center;
+    font-family: Yu Mincho;
+}
+
+
+/*候補者一覧　全体*/
+.candidates {
+    margin: 120px 250px;
+
+    border: 5px solid black;
+    background: rgba(255,255,255); 
+}
+
+
+/*候補者一覧　外枠*/
+.candidate_box {
+    height: 550px;
+    width: 1010px;
+
+    overflow-y: scroll;
+}
+
+/*候補者一覧　内容*/
+.candidate {
+    display: inline-block;
+    
+    margin: 40px 60px 40px 83px; /*上　右　下　左*/
+
+    text-align: center;
+    flex-direction: column;
+}
+.candidate img {
+    width: 100px;
+    height: 150px;
+
+    border: 3px solid #000000;
+    
+    object-fit: cover;
+    /*画像がコンテナーいっぱいに余白が出ることなくフィットされ、縦横比は維持し、
+    位置は縦横中央になり、はみ出す部分はトリミングされている*/
+    flex-wrap: wrap;
+}
+
+
+/*候補者一覧　名前*/
+.candidate_name {
+    width: 100px;
+    margin-top: 20px;
+}
+.candidate_name:hover {
+    text-decoration: underline;
+
+    color: blue ;
+}
+/*候補者一覧　URL*/
+.candidates a{
+    color: black;
+    text-decoration: none;
+}
+
+
+/*政党一覧　全体*/
+.politicals {
+    margin: 120px 250px;
+
+    border: 5px solid black;
+    background: rgba(255,255,255);
+}
+
+
+/*政党一覧　外枠*/
+.political_box {
+    width: 1010px;
+    height: 975px;
+
+    overflow-y: scroll;
+}
+
+
+/*政党一覧　内容*/
+.political {
+    display: inline-block;
+
+    margin: 40px 0px 40px 40px;
+
+    text-align: center;
+    flex-direction: column;
+}
+.political img {
+    width: 200px;
+    height: 200px;
+
+    border: 3px solid #000000;
+
+    object-fit: cover;
+    flex-wrap: wrap;
+}
+
+
+/*政党一覧　名前*/
+.political_name {
+    width: 280px;
+    margin-top: 20px;
+}
+
+
+/*政党一覧　URL*/
+.politicals a{
+    color: black;
+    text-decoration: none;
+}
+.politicals a:hover {
+    text-decoration: underline;
+
+    color: rgb(57, 8, 255);
+}

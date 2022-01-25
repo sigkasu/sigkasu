@@ -1,0 +1,78 @@
+@charset "utf-8";
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-size: cover;
+}
+
+.sub-header {
+    padding: 5px 30px;
+    margin: 100px auto;
+    top: 120;
+    right: 40;
+    overflow: hidden;
+
+    position: fixed;
+    z-index: 1;
+
+    border: solid 3px #160940;
+    background-color: #ccc;
+    background-image: url('libluetri.png');
+    background-size:cover;
+
+    text-align: center;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.sub-header li {
+    list-style: none;
+    display: inline-block;
+    min-width: 100px;
+    /*list-style-type:none;→箇条書きの点を消した*/
+	list-style-type:none;
+}
+
+
+.sub-header-item {
+    list-style: none;
+    display: block;
+}
+
+.sub-header-item select {
+    outline: none;
+}
+
+
+/*ul：黒ポチの箇条書き*/
+.sub-header ul {
+    margin: 0 ;
+    padding: 0 ;
+}
+
+.sub-header a {
+    padding: 15px;
+
+    text-decoration: none;
+
+    color: #000000;
+}
+
+.sub-header a:hover {
+    background-color: rgb(111, 134, 250, 0.5);
+
+    color: #000000;
+}
+
+p { 
+   display:none;
+}
+
+input[type="checkbox"] {
+    display:none}:checked + p{
+    display:block;
+}

@@ -1,0 +1,206 @@
+@charset "utf-8";
+/*header.blade.phpの記述*/
+
+
+/*「*」はすべての要素に当てはまる*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/*header 全体*/
+header {
+    position: sticky;
+    z-index: 3;
+
+    width: 100%;
+    padding: 15px 0 0;
+    margin: 0 auto;
+    top: 0;
+
+    background-color: rgba(149, 146, 147, 0.5);
+
+    text-align: center;
+    font-weight: bold;
+}
+
+
+/*ロゴ,タイトル,検索欄*/
+.tophead {
+    display: flex;
+
+    margin: 10px auto 0px;
+
+    align-items: center;
+    font-size: 35px;
+}
+
+
+/*ロゴ*/
+.logo {
+    margin: 0 10px;
+
+    background-color: rgba(87, 101, 87, 0.3);
+}
+.logo img {
+    height: 62px;
+}
+
+
+/*タイトル*/
+.headline a {
+    display: inline-block;
+
+    padding: 5px 50px;
+
+    color: #fafafa;
+    background-color: rgba(87, 101, 87, 0.3);
+}
+
+
+/*検索欄*/
+.search {
+    margin: 10px;
+    margin-left: auto;
+    padding: 0px 30px;
+
+    text-align: right;
+}
+.search input {
+    width: 15em;
+    height:40px;
+
+    border: solid 2px black;
+}
+.search-button {
+    position: absolute;
+    top: 40px;
+    right: 42px;
+
+    border: 0px;
+}
+.search-button:hover{
+    cursor: pointer;
+    opacity:0.5;
+}
+.search-button img {
+    height: 33px;
+
+    background-color: #fafafa;
+}
+
+
+/*ヘッダー 全体*/
+.main-header {
+    margin: 0 auto;
+    padding: 10px 0 0;
+    
+    text-align: center;
+}
+
+/*ヘッダー 要素*/
+.main-header li {
+    display: inline-block;
+    position: relative;
+
+    width: 16%;
+    min-width: 90px;
+
+    list-style: none;
+}
+
+.main-header li:first-child {
+    margin-top: 0px;
+}
+
+.main-header li:hover ul {
+    display: block;
+}
+
+.main-header a {
+    display: block;
+    
+    padding: 10px 10px 23px 10px;
+
+    color: #000000;
+    
+    text-decoration: none;
+}
+.main-header a:hover {
+    color: #000000;
+
+    background-color: rgb(123, 123, 123);
+}
+
+
+/*第〇回△△選挙*/
+.form-group input {
+    width: 60px;
+    margin-left: -40px;
+    padding: 5px;
+
+    border: solid 2px black;
+	border-radius: 5px;
+    color: #000000;
+    background-color: rgb(123, 183, 221);
+    
+    font-weight: bold;
+}
+
+select {
+    outline: none;
+    margin-bottom: 20px;
+	padding: 7px 30px 7px 10px;
+    
+	border: none;
+	border-radius: 5px;
+	background-color: rgb(200, 199, 199);
+    
+    font-weight: bold;
+	font-size: 93%;
+	line-height: 1.1em;
+    
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+}
+select::-ms-expand{
+    display: none;
+}
+
+option {
+    background-color: #fafafa;
+}
+
+
+/*政党一覧*/
+.main-header-itemA a:hover {
+    color: #000000;
+
+    text-decoration: none;
+}
+.main-header-itemA ul{
+    display: none;
+    position: absolute;
+
+    height: auto;
+    margin: 0;
+    padding: 0;
+}
+
+.main-header-itemA ul li {
+    width: 243px;
+    height:auto;
+    
+    background-color:rgb(200, 199, 199);
+}
+.main-header-itemA li:not(:last-child) {
+    border-right: none;
+}
+
+.main-header-itemA ul li a {
+    font-weight: normal;
+    line-height: 20px;
+}
