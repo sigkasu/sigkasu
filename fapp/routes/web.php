@@ -39,3 +39,15 @@ Route::get('toppage', 'App\Http\Controllers\ToppageController@index')->name('top
 Route::get('support1', 'App\Http\Controllers\Support1Controller@index')->name('support1');
 
 Route::post('support1', 'App\Http\Controllers\Support1Controller@send')->name('support1');
+
+Route::resource('tweets', 'App\Http\Controllers\TweetController');
+
+Route::resource('questions', 'App\Http\Controllers\QuestionController');
+
+Route::get('gazou', function(){
+
+    $image = Image::make(file_get_contents('http://goo.gl/uDTEzv'));
+  
+    return $image->response('jpg');
+  
+  });
