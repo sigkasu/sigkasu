@@ -94,8 +94,7 @@ class MypageController extends Controller
         $auth = Auth::id();
         $users = DB::table('users')->where('users.id', $auth)->get();
         $mypage = Mypage::find($id);
-        print_r($id);
-        print_r($mypage);
+
         return view('edit', [
             'users' => $users,
             'mypage' => $mypage]);
@@ -111,9 +110,21 @@ class MypageController extends Controller
     public function update(Request $request, $id)
     {   
         $mypage = Mypage::find($id);
-        $form = $request->all();
-        $mypage->fill($form)->save();
-
+        if($request->image) {
+            $mypage->image = $request->image;
+            $mypage->save();
+        }
+        if($request->movie) {
+            $mypage->movie = $request->movie;
+            $mypage->save();
+        }
+        $mypage->party = $request->party;
+        $mypage->birth = $request->birth;
+        $mypage->gender = $request->gender;
+        $mypage->career = $request->career;
+        $mypage->introduction = $request->introduction;
+        $mypage->history = $request->history;
+        $mypage->save();
         return redirect()->route('mypage.index');
     }
 
