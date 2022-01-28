@@ -35,7 +35,13 @@
                     <table>
                         <tr>
                             <td>政党名</td>
-                            <td><input id="party" type="text" class="create-party" name="party"style="width: 350px; height: 25px" value="{{ old('party') }}"></td>
+                            <td>
+                                <select id="party" class="create-party" name="party" style="width: 350px; height: 25px">
+                                    @foreach(config('party') as $party)
+                                        <option value="{{ $party }}">{{ $party }}</option>
+                                    @endforeach
+                                </select>
+                            </td>
                         </tr>
                         <tr>
                             <td>生年月日</td>

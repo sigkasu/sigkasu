@@ -1,18 +1,18 @@
 @section('subheader')
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="{{ asset('css/subheader.css') }}">
+    <link rel="stylesheet" href="{{asset('css/subheader.css')}}">
 
     <title>サンプルのサイト</title>
 
 </head>
     
 <body>
-    <div class="sub-header">
+    <div class="sub-header1">
         <ul>
             <li class="sub-header-item"><a href="mypage">マイページ</a></li>
 
-            <li class="sub-header-item"><a href="tweet">つぶやき</a></li>
+            <li class="sub-header-item"><a href="#">つぶやき</a></li>
 
             <li class="sub-header-item"><a href="answer">質問返答</a></li>
 

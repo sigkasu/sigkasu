@@ -22,11 +22,34 @@
 @else
 {{-- elseだよ --}}
     @if($id == $user_id)
+    <div class="sub-header1">
+        <ul>
+            <li class="sub-header-item"><a href="mypage">マイページ</a></li>
+
+            <li class="sub-header-item"><a href="{{ route('tweets.show', $mypage->user_id) }}">つぶやき</a></li>
+
+            <li class="sub-header-item"><a href="answer">質問返答</a></li>
+
+            <li class="sub-header-item"><a href="questionnaire">候補者アンケート</a></li>
+        </ul>
+    </div>
+
         <button type="button" class="btn btn-editing1 ml-3" onclick="location.href='{{ route('mypage.edit', $mypage->id) }}'">
         編集
         </button>
+    @else
+    <div class="sub-header1">
+        <ul>
+            <li class="sub-header-item"><a href="#">候補者ページ</a></li>
+            <li class="sub-header-item"><a href="{{ route('tweets.show', $mypage->user_id) }}">つぶやき</a></li>
+            <li class="sub-header-item"><a href="{{ route('questions.create', $mypage->user_id) }}">質問を送る</li>
+        </ul>
+    </div>
     @endif
 
+    <button type="button" onclick="location.href='{{ route('tweets.show', $mypage->user_id) }}'">
+        つぶやき
+    </button>
     <div class="overall">
         <H1>{{ $users->name }}</H1>
         <div class="images">

@@ -35,7 +35,7 @@
         <li class="main-header-itemA">
             <div class="form-group">
             {!! Form::open(['route' => 'home', 'method' => 'get']) !!}
-                {!! Form::select('selection', Config::get('selection')) !!}
+                {!! Form::select('selection', Config::get('selection'), ['class' => 'form-control']) !!}
             {!! Form::submit('検索') !!}
             {!! Form::close() !!}
             </div>
@@ -54,26 +54,37 @@
             </ul>
         </li>
         @auth
-        <li class="main-header-item"><a href="{{ route('mypage.index') }}">マイページ</a></li>
+
         @endauth
         @guest
-            @if (Route::has('login'))
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ route('login') }}">ログイン</a>
-                </li>
-            @endif
-
-            @if (Route::has('register'))
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ route('register') }}">新規登録</a>
-                </li>
-            @endif
+        <li class="main-header-itemA">
+            <a href="">候補者の方はこちら</a>
+                <ul>
+                    <li>
+                        @if (Route::has('register'))
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('register') }}">新規登録</a>
+                            </li>
+                        @endif
+                    </li>
+                    <li>
+                        @if (Route::has('login'))
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('login') }}">ログイン</a>
+                            </li>
+                        @endif
+                    </li>
+                </ul>
+            </li>
         @else
-            <li class="nav-item">
-                <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
-                document.getElementById('logout-form').submit();">
-                ログアウト
-                </a>
+            <li class="main-header-itemA">
+            <a href=""><?php $user = Auth::user(); ?>{{ $user->name }}</a>
+                <ul>
+                    <li class="main-header-item"><a href="{{ route('mypage.index') }}">マイページ</a></li>
+                    <li><a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
+                            document.getElementById('logout-form').submit();">
+                        ログアウト</a></li>
+                </ul>
                 <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                     @csrf
                 </form>

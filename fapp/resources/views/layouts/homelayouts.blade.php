@@ -9,7 +9,7 @@
 
     <body>
         @yield('header')
-
+        @yield('subheader')
         @yield('contents')
     </body>
 </html>

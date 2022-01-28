@@ -20,13 +20,13 @@
                 <div class="create_images">
                     <div class="image_text">画像<br>
                         <label>
-                            <input id="image" type="file" class="image" name="image" value="{{ old('image', $mypage->image) }}">ファイルを選択
+                            <input id="image" type="file" name="image">ファイルを選択
                         </label>
                     </div>
 
                     <div class="image_movie">動画<br>
                         <label>
-                            <input id="movie" type="file" class="movie" name="movie" value="{{ old('movie', $mypage->movie) }}">ファイルを選択
+                            <input id="movie" type="file" name="movie">ファイルを選択
                         </label>
                     </div>
                 </div>
@@ -35,7 +35,13 @@
                     <table>
                         <tr>
                             <td>政党名</td>
-                            <td><input id="party" type="text" class="create-party" name="party" style="width: 350px; height: 25px" value="{{ old('party', $mypage->party) }}"></td>
+                            <td>
+                                <select id="party" class="create-party" name="party" style="width: 350px; height: 25px">
+                                    @foreach(config('party') as $party)
+                                        <option value="{{ $party }}">{{ $party }}</option>
+                                    @endforeach
+                                </select>
+                            </td>
                         </tr>
                         <tr>
                             <td>生年月日</td>
@@ -50,19 +56,19 @@
                         </tr>
                         <tr>
                             <td>経歴</td>
-                            <td><input id="career" type="text" class="create-career" name="career" value="{{ old('career', $mypage->career) }}"></input></td>
+                            <td><textarea id="career" type="text" class="create-career" name="career">{{ old('career', $mypage->career) }}</textarea></td>
                         </tr>
                     </table>
 
                     <div class="sentence">
                         <div class="introduction">
                             <div class="title1">自己紹介＆公約<br></div>
-                            <input id="introduction" type="text" class="create-introductions" name="introduction" value="{{ old('introduction', $mypage->introduction) }}"></input>
+                            <textarea id="introduction" type="text" class="create-introductions" name="introduction">{{ old('introduction', $mypage->introduction) }}</textarea>
                         </div>
 
                         <div class="histories">
                             <div class="title2">出馬履歴<br></div>
-                            <input id="history" type="text" class="create-histories" name="history" value="{{ old('history', $mypage->history) }}"></intpuS>
+                            <textarea id="history" type="text" class="create-histories" name="history">{{ old('history', $mypage->history) }}</textarea>
                         </div>
                     </div>
                 </div>
