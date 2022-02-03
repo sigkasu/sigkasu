@@ -6,6 +6,11 @@
 
     <head>
         <link rel="stylesheet" href="{{ asset('css/mypage.css') }}">
+        <script>
+            function confirmFunction1() {
+                ret=confirm("この内容で編集しますか？");
+            }
+        </script>
     </head>
 
     <body>
@@ -74,7 +79,7 @@
                 </div>
 
                 <div class="text-center">
-                    <button type="submit" class="btn btn-create ml-3" name='action' value='add'>編集</button>
+                    <button type="submit" onclick="confirmFunction1()" class="btn btn-create ml-3" name='action' value='add'>編集</button>
         </form>
                     <button type="button" class="btn btn-return" onClick="history.back()">戻る</button>
                 </div>

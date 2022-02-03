@@ -10,7 +10,7 @@
 
     <script>
         function confirmFunction1() {
-            ret=confirm("この内容で送信しますか？");
+            ret=confirm("この内容で登録しますか？");
         }
     </script>
     

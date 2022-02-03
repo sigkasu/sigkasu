@@ -6,11 +6,8 @@
 
 <body>
     @error('email')
-        <div class="flash_message3">入力に誤りがあります</div>
+        <div class="flash-message2">入力に誤りがあります</div>
     @enderror('email')
-    @error('password')
-    <div class="flash_message3">入力に誤りがあります</div>
-    @enderror('password')
 
     <div class="login-title">
         <h2>ログイン画面</h2>
@@ -37,7 +34,7 @@
         </div>
     
         <div class="lost-item">
-            <h3>※パスワードを忘れた方は<a href="{{ route('password.request') }}">コチラ</a></h3>
+            ※パスワードを忘れた方は<a href="{{ route('password.request') }}">コチラ</a>
         </div>
     </form>                 
 </body>

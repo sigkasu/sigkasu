@@ -14,7 +14,7 @@
 @section('contents')
 
     @if(session('flash_message'))
-        <div class="flash_message2">
+        <div class="flash-message2">
             {{ session('flash_message') }}
         </div>
     @endif
@@ -30,7 +30,7 @@
                 <th>お名前</th>
                 <td><input type="text" name="name" class="name-mail" size="70" text-size="10" placeholder="お名前" style="height:50px;" value="{{ old('name') }}">
                     @if ($errors->has('name'))
-                        {{$errors->first('name')}}
+                        <div class="support-feedback1">{{$errors->first('name')}}</div>
                     @endif
                 </td>
             </tr>
@@ -39,7 +39,7 @@
                 <th>メールアドレス</th>
                 <td><input type="email" name="email" class="name-mail" size="70" placeholder="メールアドレス" style="height:50px;" value="{{ old('email') }}">
                     @if ($errors->has('email'))
-                        {{$errors->first('email')}}
+                        <div class="support-feedback1">{{$errors->first('email')}}</div>
                     @endif
                 </td>
             </tr> 
@@ -47,9 +47,9 @@
             <tr>
                 <th>お問い合わせ内容</th>
                 <td>
-                    <textarea class="inquiry" type="text" name="message" size="400" placeholder="内容を400字以内で入力してください" value="{{ old('message') }}"></textarea>
+                    <textarea class="inquiry" type="text" name="message" size="400" placeholder="内容を400字以内で入力してください" >{{ old('message') }}</textarea>
                         @if ($errors->has('message'))
-                            {{$errors->first('message')}}
+                            <div class="support-feedback2">{{$errors->first('message')}}</div>
                         @endif
                 </td>
             </tr>

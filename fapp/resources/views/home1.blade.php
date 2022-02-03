@@ -13,16 +13,20 @@
         <h1>候補者一覧</h1>
 
     <div class="candidate_box">
-        @foreach($people_items as $item)
-            <div class="candidate">
-                <tr>
-                    <a href="{{ route('mypage.show', $item->id) }}">
-                        <td><img src="{{ url($item->image) }}"></td><br>
-                        <div class="aaa"><td>{{$item->name}}</td></div>
-                    </a>
-                </tr>
-            </div>
-        @endforeach
+        @if(count($people_items) != 0)
+            @foreach($people_items as $item)
+                <div class="candidate">
+                    <tr>
+                        <a href="{{ route('mypage.show', $item->id) }}">
+                            <td><img src="{{ url($item->image) }}"></td><br>
+                            <div class="aaa"><td>{{$item->name}}</td></div>
+                        </a>
+                    </tr>
+                </div>
+            @endforeach
+        @else
+            <div class="no-match">　 該当する候補者はいません。</div>
+        @endif
     </div>
 </div>
 

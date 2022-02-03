@@ -23,7 +23,7 @@
 
         <div class="search">
             <form action="{{ route('home') }}" method="get">
-                <input type="text" name="name" size="20" placeholder="検索">
+                <input type="text" name="name" size="20" placeholder="候補者名で検索">
                 <button class="search-button" type="submit"><img src="{{ asset('search.png') }}"></div>
             </form>
         </div>
@@ -40,7 +40,7 @@
             {!! Form::close() !!}
             </div>
         <li class="main-header-itemA">
-            <a href="">政党一覧</a>
+            <a href="#">政党一覧</a>
             <ul>
                 <li><a href="https://www.jimin.jp/">自民党</a></li><br>
                 <li><a href="https://www.cdp-japan.jp/">立憲民主党</a></li><br>
@@ -58,7 +58,7 @@
         @endauth
         @guest
         <li class="main-header-itemA">
-            <a href="">候補者の方はこちら</a>
+            <a href="#">候補者の方はこちら</a>
                 <ul>
                     <li>
                         @if (Route::has('register'))
@@ -78,7 +78,7 @@
             </li>
         @else
             <li class="main-header-itemA">
-            <a href=""><?php $user = Auth::user(); ?>{{ $user->name }}</a>
+            <a href="#"><?php $user = Auth::user(); ?>{{ $user->name }}</a>
                 <ul>
                     <li class="main-header-item"><a href="{{ route('mypage.index') }}">マイページ</a></li>
                     <li><a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();

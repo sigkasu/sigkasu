@@ -8,7 +8,11 @@
 </head>
 
 <body>
-
+@if(session('flash_message'))
+    <div class="flash-message1">
+        {{ session('flash_message') }}
+    </div>
+@endif
 @if(empty($mypage))
     @if($id == $user_id)
         <div class="new">あなたはまだマイページを作成していません。<br>下記のボタンから入力してください。</div>
@@ -24,13 +28,10 @@
     @if($id == $user_id)
     <div class="sub-header1">
         <ul>
-            <li class="sub-header-item"><a href="mypage">マイページ</a></li>
-
+            <li class="sub-header-item"><a href="{{ route('mypage.index') }}">マイページ</a></li>
             <li class="sub-header-item"><a href="{{ route('tweets.show', $mypage->user_id) }}">つぶやき</a></li>
-
-            <li class="sub-header-item"><a href="answer">質問返答</a></li>
-
-            <li class="sub-header-item"><a href="questionnaire">候補者アンケート</a></li>
+            <li class="sub-header-item"><a href="{{ route('questions.index', $mypage->user_id) }}">質問一覧</a></li>
+            <li class="sub-header-item"><a href="{{ route('questions.edit', $mypage->user_id) }}">質問返答</a></li>
         </ul>
     </div>
 
@@ -40,16 +41,14 @@
     @else
     <div class="sub-header1">
         <ul>
-            <li class="sub-header-item"><a href="#">候補者ページ</a></li>
+            <li class="sub-header-item"><a href="{{ route('mypage.show', $mypage->id) }}">候補者ページ</a></li>
             <li class="sub-header-item"><a href="{{ route('tweets.show', $mypage->user_id) }}">つぶやき</a></li>
-            <li class="sub-header-item"><a href="{{ route('questions.create', $mypage->user_id) }}">質問を送る</li>
+            <li class="sub-header-item"><a href="{{ route('questions.index', $mypage->user_id) }}">質問一覧</a></li>
+            <li class="sub-header-item"><a href="{{ route('questions.create', $mypage->user_id) }}">質問を送る</li></a>
         </ul>
     </div>
     @endif
 
-    <button type="button" onclick="location.href='{{ route('tweets.show', $mypage->user_id) }}'">
-        つぶやき
-    </button>
     <div class="overall">
         <H1>{{ $users->name }}</H1>
         <div class="images">
