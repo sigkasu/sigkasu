@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Validator;
 use App\Models\Question;
 use App\Models\Tweet;
 use Auth;
@@ -15,9 +16,14 @@ class QuestionController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($user_id)
     {
-        //
+        $id = Auth::id();
+        $mypage = DB::table('mypages')->where('mypages.user_id', $user_id)->first();
+        $answered_questions = Question::orderBy('updated_at', 'desc')->where('user_id', $user_id)->where('answer', '!=', null)->get();
+        $unanswered_questions = Question::orderBy('id', 'desc')->where('user_id', $user_id)->where('answer', null)->get();
+
+        return view('questions.index')->with(['mypage' => $mypage, 'answered_questions' => $answered_questions, 'unanswered_questions' => $unanswered_questions, 'id' => $id, 'user_id' => $user_id]);     
     }
 
     /**
@@ -25,9 +31,10 @@ class QuestionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($user_id)
     {
-        return view('questions.create');
+        $mypage = DB::table('mypages')->where('mypages.user_id', $user_id)->first();
+        return view('questions.create')->with(['mypage' => $mypage, 'user_id' => $user_id]);
     }
 
     /**
@@ -36,9 +43,33 @@ class QuestionController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, $user_id)
     {
-        //
+        $mypage = DB::table('mypages')->where('mypages.user_id', $user_id)->first();
+
+        $rules = [
+            'question' => 'required'
+        ];
+        $messages = [
+            'question.required' => '質問を入力して下さい。',
+        ];
+        $validator = Validator::make($request->all(), $rules, $messages);
+
+        if ($validator->fails()) {
+            return view('questions.create')
+                ->with(['mypage' => $mypage])
+                ->withErrors($validator);
+        }
+
+        if(isset($request->question)) {
+            $question = new Question;
+            $question->user_id = $user_id;
+            $question->question = $request->question;
+            $question->save();
+        }
+
+        session()->flash('flash_message', '送信しました。');
+        return view('questions.create')->with(['mypage' => $mypage]);
     }
 
     /**
@@ -52,9 +83,8 @@ class QuestionController extends Controller
         $id = Auth::id();
         $mypage = DB::table('mypages')->where('mypages.user_id', $user_id)->first();
         $questions = Question::orderBy('id', 'desc')->where('user_id', $user_id)->get();
-        $tweets = Tweet::where('user_id', $user_id)->get();
 
-        return view('questions.index')->with(['tweets' => $tweets, 'mypage' => $mypage, 'questions' => $questions, 'id' => $id, 'user_id' => $user_id]);
+        return view('questions.index')->with(['mypage' => $mypage, 'questions' => $questions, 'id' => $id, 'user_id' => $user_id]);
     }
 
     /**
@@ -63,9 +93,13 @@ class QuestionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($user_id)
     {
-        //
+        $id = Auth::id();
+        $mypage = DB::table('mypages')->where('mypages.user_id', $user_id)->first();
+        $unanswered_questions = Question::orderBy('id', 'desc')->where('user_id', $user_id)->where('answer', null)->get();
+
+        return view('questions.answer')->with(['mypage' => $mypage, 'unanswered_questions' => $unanswered_questions, 'id' => $id, 'user_id' => $user_id]);    
     }
 
     /**
@@ -77,7 +111,18 @@ class QuestionController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $question = Question::find($id);
+
+        $question->answer = $request->answer;
+        $question->save();
+
+        $user_id = Auth::id();
+        $id = Auth::id();
+        $mypage = DB::table('mypages')->where('mypages.user_id', $user_id)->first();
+        $answered_questions = Question::orderBy('id', 'desc')->where('user_id', $user_id)->where('answer', '!=', null)->get();
+        $unanswered_questions = Question::orderBy('id', 'desc')->where('user_id', $user_id)->where('answer', null)->get();
+        
+        return view('questions.index')->with(['mypage' => $mypage, 'answered_questions' => $answered_questions, 'unanswered_questions' => $unanswered_questions, 'id' => $id, 'user_id' => $user_id]); 
     }
 
     /**
@@ -89,5 +134,21 @@ class QuestionController extends Controller
     public function destroy($id)
     {
         //
+    }    
+
+    public function answer(Request $request, $id)
+    {
+        $question = Question::find($id);
+
+        $question->answer = $request->answer;
+        $question->save();
+
+        $user_id = Auth::id();
+        $mypage = DB::table('mypages')->where('mypages.user_id', $user_id)->first();
+        $unanswered_questions = Question::orderBy('id', 'desc')->where('user_id', $user_id)->where('answer', null)->get();
+
+        session()->flash('flash_message', '返答しました。');
+        
+        return view('questions.answer')->with(['mypage' => $mypage, 'unanswered_questions' => $unanswered_questions, 'id' => $id, 'user_id' => $user_id]);
     }
 }

@@ -21,8 +21,9 @@ class TweetController extends Controller
         $user_id = Auth::id();
         $mypage = DB::table('mypages')->where('mypages.user_id', $id)->first();
         $tweets = Tweet::orderBy('id', 'desc')->limit(100)->where('user_id', $user_id)->get();
+        $question = Question::orderBy('updated_at', 'desc')->where('user_id', $user_id, )->where('answer', '!=', 'null')->first();
 
-        return view('tweets')->with(['tweets' => $tweets, 'mypage' => $mypage,'id' => $id, 'user_id' => $user_id]);
+        return view('tweets')->with(['tweets' => $tweets, 'mypage' => $mypage, 'question' => $question, 'id' => $id, 'user_id' => $user_id]);
     }
 
     /**
@@ -64,9 +65,9 @@ class TweetController extends Controller
         $id = Auth::id();
         $mypage = DB::table('mypages')->where('mypages.user_id', $user_id)->first();
         $tweets = Tweet::orderBy('id', 'desc')->limit(100)->where('user_id', $user_id)->get();
-        $questions = Question::orderBy('id', 'desc')->where('user_id', $user_id)->get();
+        $question = Question::orderBy('updated_at', 'desc')->where('user_id', $user_id, )->where('answer', '!=', 'null')->first();
 
-        return view('tweets')->with(['tweets' => $tweets, 'mypage' => $mypage, 'questions' => $questions, 'id' => $id, 'user_id' => $user_id]);
+        return view('tweets')->with(['tweets' => $tweets, 'mypage' => $mypage, 'question' => $question, 'id' => $id, 'user_id' => $user_id]);
     }
 
     /**
