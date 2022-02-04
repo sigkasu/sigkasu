@@ -5,19 +5,19 @@
 body {
     background-image: url('../trianglepink.jpg');
     background-size: cover;
-   
-    /* 画像をタイル状に繰り返し表示しない */
     background-repeat: no-repeat;
-   
-    /* コンテンツの高さが画像の高さより大きい時、動かないように固定 */
+    /* 画像をタイル状に繰り返し表示しない */
     background-attachment: fixed;
+    /* コンテンツの高さが画像の高さより大きい時、動かないように固定 */
+
 }
 
 
 /*候補者一覧,政党一覧　タイトル*/
 h1 {
-    font-family: Yu Mincho;
     text-align: center;
+
+    font-family: Yu Mincho;
 }
 
 
@@ -25,8 +25,9 @@ h1 {
 .candicates {
     margin: 150px 150px 120px;
 
-    border: 2px solid black;
     background-color: #fafafa;
+
+    border: 2px solid black;
 }
 
 /*候補者一覧　内容*/
@@ -36,6 +37,7 @@ h1 {
     margin: 30px 88px 30px 108px; /*上　右　下　左*/
 
     text-align: center;
+
     flex-direction: column;
 }
 .candidate img {
@@ -53,8 +55,9 @@ h1 {
 .politicals {
     margin: 50px 150px;
 
-    border: 2px solid black;
     background-color: #fafafa;
+
+    border: 2px solid black;
 }
 
 /*政党一覧　内容*/
@@ -64,6 +67,7 @@ h1 {
     margin: 30px 60px 30px 60px;
 
     text-align: center;
+    
     flex-direction: column;
 }
 .political img {
@@ -74,4 +78,14 @@ h1 {
 
     object-fit: cover;
     flex-wrap: wrap;
+}
+
+/*フッター*/
+.footer {
+    padding: 30px;
+
+    color: #fafafa;
+    background-color: rgba(87, 101, 87);
+
+    text-align: center;
 }

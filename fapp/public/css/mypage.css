@@ -7,12 +7,84 @@
 body {
     background-image: url('../triangleliblue.jpg');
     background-size: cover;
-
-    /* 画像をタイル状に繰り返し表示しない */
     background-repeat: no-repeat;
-   
-    /* コンテンツの高さが画像の高さより大きい時、動かないように固定 */
+    /* 画像をタイル状に繰り返し表示しない */
     background-attachment: fixed;
+    /* コンテンツの高さが画像の高さより大きい時、動かないように固定 */
+}
+
+/*フラッシュメッセージ*/
+.flash-message1 {
+    padding: 15px;
+
+    color: white;
+    background-color: rgb(130, 207, 233);
+
+    text-align: center;
+
+    font-size: 20px;
+}
+
+/*サブヘッダー 全体(create,edit,mypage.blade.php)*/
+.sub-header1 {
+    z-index: 1;
+
+    padding: 5px 30px;
+    margin: 75px 40px 0px 925px;
+
+    overflow: hidden;
+
+    background-color: #ccc;
+    background-image: url('../libluetri1.png');
+    background-size: cover;
+
+    border: solid 3px #160940;
+
+    text-align: center;
+    text-decoration: none;
+
+    font-weight: bold;
+}
+
+/*ヘッダー 要素*/
+.sub-header1 li {
+    display: inline-block;
+
+    min-width: 100px;
+
+    list-style: none;
+	list-style-type: none;
+    /*list-style-type:none;→箇条書きの点を消した*/
+}
+
+.sub-header-item {
+    display: block;
+
+    list-style: none;
+}
+
+.sub-header-item select {
+    outline: none;
+}
+
+
+/*ul：黒ポチの箇条書き*/
+.sub-header1 ul {
+    margin: 0 ;
+    padding: 0 ;
+}
+
+.sub-header1 a {
+    padding: 15px;
+
+    color: #000000;
+
+    text-decoration: none;
+}
+.sub-header1 a:hover {
+    color: #000000;
+
+    background-color: rgb(111, 134, 250, 0.5);
 }
 
 /*候補者名*/
@@ -33,22 +105,21 @@ table {
 }
 
 /*表内の装飾*/
-table tr, table td {
-    line-height: 190%;
-    
+table tr, table td {    
     border: solid 2px black;
+
+    line-height: 190%;
 }
 table td {
     padding: 10px 20px;
 }
 .table tr, table td:nth-child(1) {
-  width:150px;
+    width:150px;
 }
 
 /*「自己紹介＆公約」＆「出馬履歴」*/
 .sentence {
-    display: flex;
-    
+    display: flex;    
 }
 
 /*自己紹介＆公約全体*/
@@ -59,12 +130,10 @@ table td {
     margin: 80px 0px 80px 50px;
     padding: 10px 20px 10px 20px;
 
-    border:solid 2px black;
+    border: solid 2px black;
 
     line-height: 190%;
-    /*行ボックスの高さを設定*/
     word-wrap: break-word;
-    /*語の途中で折り返さないと行ボックスの幅からあふれてしまうときのみ、その単語の途中で折り返します*/
 }
 
 /*自己紹介＆公約のタイトル*/
@@ -99,53 +168,105 @@ input:-webkit-autofill {
 
 /*================ mypage.blade.php ===============*/
 
-/*新規作成ボタン*/
-.new {
-    position: absolute;
-	top: 53%;
-	left: 50%;
-	transform: translate(-50%, -50%);
+/*下記のボタンから入力してください画面のフッター*/
+.footer1 {
+    margin: 32px auto 0;
+    padding: 30px;
+
+    color: #fafafa;
+    background-color: rgba(87, 101, 87);
 
     text-align: center;
+}
+
+/*マイページが作成されていません画面のフッター*/
+.footer2 {
+    margin: 221px auto 0;
+    padding: 30px;
+
+    color: #fafafa;
+    background-color: rgba(87, 101, 87);
+
+    text-align: center;
+}
+
+/*新規作成ボタン*/
+.new1 {
+    margin: 188px auto 40px;
+
+    text-align: center;
+
     font-size: 140%;
 }
 
-.btn-new1 {
-    position: absolute;
-	top: 63%;
-	left: 50%;
-	transform: translate(-50%, -50%);
+.new2 {
+    margin: 250px auto 40px;
 
+    text-align: center;
+
+    font-size: 180%;
+}
+
+.btn-new1 {
+    margin: 0px 673px 124px;
     padding: 5px 15px;
     
-    border: none;
-    border-radius: 25px;
     color: #fafafa;
     background: #00bcd4;
-    
+
+    border: none;
+    border-radius: 25px;
+
+    text-align: center;
+
     font-size: 220%;
 }
-.btn-new:hover {
+.btn-new1:hover {
     color: #fafafa;
     background: #116a6a;
 }
 
-/*編集ボタン１*/
-.btn-editing1 {
+
+/*編集ボタン flashmessageがあるとき*/
+.btn-editing1-1 {
     position: absolute;
-	top: 60%;
+
+	top: 69%;
 	left: 22%;
+    padding: 5px 15px;
+
 	transform: translate(-50%, -50%);
 
-    padding: 5px 15px;
-    
-    border: none;
     color: #fafafa;
     background: #00bcd4;
+
+    border: none;
     
     font-size: 150%;
 }
-.btn-editing1:hover {
+.btn-editing1-1:hover {
+    color: #fafafa;
+    background: #116a6a;
+}
+
+/*編集ボタン flashmessageがないとき*/
+.btn-editing1-2 {
+    position: absolute;
+
+	top: 61.5%;
+	left: 22%;
+    padding: 5px 15px;
+
+	transform: translate(-50%, -50%);
+
+    color: #fafafa;
+    background: #00bcd4;
+
+    border: none;
+    
+    font-size: 150%;
+}
+.btn-editing1-2:hover {
     color: #fafafa;
     background: #116a6a;
 }
@@ -154,10 +275,11 @@ input:-webkit-autofill {
 .overall {
     display: inline-block;
 
-    margin: 120px 250px;
+    margin: 100px 250px;
+
+    background-color: #fafafa;
 
     border: 5px solid black;
-    background-color: #fafafa;
 }
 
 /*候補者の顔写真＆紹介動画*/
@@ -197,20 +319,23 @@ input:-webkit-autofill {
 /*経歴*/
 .mypage-career {
     height: 430px;
+
     overflow-y: scroll;
 }
 
 /*自己紹介＆公約*/
 .mypage-introductions {
-    padding: 15px 0px 0px;
     height: 415px;
+    padding: 15px 0px 0px;
+
     overflow-y: scroll;
 }
 
 /*出馬履歴*/
 .mypage-histories {
-    padding: 15px 0px 0px;
     height: 415px;
+    padding: 15px 0px 0px;
+
     overflow-y: scroll;
 }
 
@@ -219,16 +344,28 @@ input:-webkit-autofill {
     margin: 0px 465px 50px;
     padding: 5px 15px;
 
-    border: none;
     color: #fafafa;
     background: #00bcd4;
+
+    border: none;
     
     text-align: center;
+
     font-size: 150%;
 }
 .btn-editing2:hover {
     color: #fafafa;
     background: #116a6a;
+}
+
+/*フッター*/
+.footer3 {
+    padding: 30px;
+
+    color: #fafafa;
+    background-color: rgba(87, 101, 87);
+
+    text-align: center;
 }
 
 
@@ -248,20 +385,20 @@ input:-webkit-autofill {
     width: 190px;
     height: 230px;
     margin: 30px 50px 70px 80px;
-    line-height:75px;
     
     border: 3px solid black;
     
     text-align:center;
+    line-height:75px;
+
     object-fit: cover; 
-    /*画像がコンテナーいっぱいに余白が出ることなくフィットされ、縦横比は維持し、
-    位置は縦横中央になり、はみ出す部分はトリミングされている*/
     flex-wrap: wrap;
 }
 
 /*写真と動画を挿入*/
 input[type="file"] {
     position: absolute;
+
     opacity: 0;
     visibility: hidden;
 }
@@ -285,17 +422,25 @@ label {
     width: 400px;
     height: 230px;
     margin: 30px 70px 70px 190px;
-    line-height:75px;
     
     border: 3px solid black;
 
-    text-align:center;
+    text-align: center;
+    line-height:75px;
 }
 
 /*政党名*/
 .create-party {
     padding: 0px 10px;
-    width: 200px;
+
+    font-size: 16px;
+}
+
+/*名前,メールアドレス*/
+.create-feedback1 {
+    margin: 5px auto 0px;
+
+    font-weight: bold;
 }
 
 /*性別（女）*/
@@ -324,14 +469,19 @@ label {
     margin: 40px 0px 30px 20px;
     padding: 10px 20px 20px 20px;
     
-    border:solid 2px black;
+    border: solid 2px black;
+
+    line-height: 190%;
+    word-wrap: break-word;
 
     font-size: 120%;
-    
-    line-height: 190%;
-    /*行ボックスの高さを設定*/
-    word-wrap: break-word;
-    /*語の途中で折り返さないと行ボックスの幅からあふれてしまうときのみ、その単語の途中で折り返します*/
+}
+
+/*お問い合わせ内容*/
+.create-feedback2 {
+    margin: 5px auto 10px;
+
+    font-weight: bold;
 }
 
 /*出馬履歴*/
@@ -344,12 +494,12 @@ label {
     margin: 40px 0px 30px 20px;
     padding: 10px 20px 20px 20px;
     
-    border:solid 2px black;
-
-    font-size: 120%;
+    border: solid 2px black;
 
     line-height: 190%;
     word-wrap: break-word;
+
+    font-size: 120%;
 }
 
 /*作成・戻るボタン*/
@@ -359,13 +509,14 @@ label {
 
 /*作成ボタン*/
 .btn-create {
+    margin: 0px 80px 0px 375px;
     padding: 5px 15px;
-    margin: 30px 80px 0px 375px;
     
-    border: none;
-    border-radius: 25px;
     color: #fafafa;
     background: #00bcd4;
+
+    border: none;
+    border-radius: 25px;
     
     font-size: 150%;
 }
@@ -378,10 +529,11 @@ label {
 .btn-return {
     padding: 5px 15px;
     
-    border: none;
-    border-radius: 25px;
     color: #fafafa;
     background: #00bcd4;
+
+    border: none;
+    border-radius: 25px;
     
     font-size: 150%;
 }

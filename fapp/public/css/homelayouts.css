@@ -9,41 +9,50 @@ body {
 }
 
 
+/*============= 候補者,政党一覧　共通 ===============*/
+
 /*候補者一覧,政党一覧　タイトル*/
 h1 {
     margin-top: 20px;
 
     text-align: center;
+
     font-family: Yu Mincho;
 }
 
 
-/*候補者一覧　全体*/
-.candidates {
-    margin: 120px 250px;
+/*=================== 候補者一覧 ===================*/
 
-    border: 5px solid black;
-    background: rgba(255,255,255); 
+/*全体*/
+.candidates {
+    margin: 100px 250px 120px;
+
+    background: rgba(255,255,255);
+
+    border: 5px solid black; 
 }
 
-
-/*候補者一覧　外枠*/
+/*外枠*/
 .candidate_box {
-    height: 550px;
+    height: auto;
+    max-height: 550px;
     width: 1010px;
 
     overflow-y: scroll;
 }
 
-/*候補者一覧　内容*/
+/*内容全体*/
 .candidate {
     display: inline-block;
     
     margin: 40px 60px 40px 83px; /*上　右　下　左*/
 
     text-align: center;
+
     flex-direction: column;
 }
+
+/*写真*/
 .candidate img {
     width: 100px;
     height: 150px;
@@ -56,8 +65,7 @@ h1 {
     flex-wrap: wrap;
 }
 
-
-/*候補者一覧　名前*/
+/*名前*/
 .candidate_name {
     width: 100px;
     margin-top: 20px;
@@ -67,23 +75,27 @@ h1 {
 
     color: blue ;
 }
-/*候補者一覧　URL*/
+
+/*URL*/
 .candidates a{
     color: black;
+
     text-decoration: none;
 }
 
 
-/*政党一覧　全体*/
+/*==================== 政党一覧 ====================*/
+
+/*全体*/
 .politicals {
-    margin: 120px 250px;
+    margin: 120px 250px 180px;
+
+    background: rgba(255,255,255);
 
     border: 5px solid black;
-    background: rgba(255,255,255);
 }
 
-
-/*政党一覧　外枠*/
+/*外枠*/
 .political_box {
     width: 1010px;
     height: 975px;
@@ -91,16 +103,18 @@ h1 {
     overflow-y: scroll;
 }
 
-
-/*政党一覧　内容*/
+/*内容全体*/
 .political {
     display: inline-block;
 
     margin: 40px 0px 40px 40px;
 
     text-align: center;
+
     flex-direction: column;
 }
+
+/*写真*/
 .political img {
     width: 200px;
     height: 200px;
@@ -111,21 +125,32 @@ h1 {
     flex-wrap: wrap;
 }
 
-
-/*政党一覧　名前*/
+/*名前*/
 .political_name {
     width: 280px;
     margin-top: 20px;
 }
 
-
-/*政党一覧　URL*/
+/*URL*/
 .politicals a{
     color: black;
+
+    text-align: center;
     text-decoration: none;
+
+    font-size: 16px;
 }
 .politicals a:hover {
-    text-decoration: underline;
-
     color: rgb(57, 8, 255);
+
+    text-decoration: underline;
+}
+
+.footer {
+    padding: 30px;
+
+    color: #fafafa;
+    background-color: rgba(87, 101, 87);
+
+    text-align: center;
 }

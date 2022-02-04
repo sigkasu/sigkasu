@@ -3,6 +3,8 @@
 
 
 body {
+    margin: 10 auto 0;
+
     background-image: url('../triangle.png');
     background-size: cover;
 }
@@ -25,16 +27,18 @@ body {
     z-index: 3;
 
     margin: 30px;
-    float: left;
     padding: 0px 30px;
+    float: left;
     overflow: hidden;
     /*overflow:要素の内容が多すぎてブロック内に収まらない場合にどうするかを設定するもの。*/
 
-    border: solid 4px #160940;
     background-color: #00bcd4;
+
+    border: solid 4px #160940;
 
     text-align: center;
     text-decoration: none;
+
     font-weight: bold;
 }
 .Admin:after {
@@ -43,14 +47,14 @@ body {
 
     width: 100%;
     height: 0;
-    content: "";
     top: 50%;
     left: 50%;
 
-    background : #FFF;
-
+    content: "";
     opacity: 0;
     /*opacity:要素の不透明度を設定。不透明度は要素の裏にあるコンテンツが隠れる度合いであり、透明度の逆*/
+
+    background : #FFF;
 
     transform: translateX(-50%) translateY(-50%) rotate(45deg);
     transition: .2s;
@@ -77,17 +81,20 @@ body {
     position: fixed;
     z-index: 3;
 
-    padding: 0px 30px;
-    margin: 30px 10px;
     top: 10;
     right: 40;
+    margin: 30px 10px;
+    padding: 0px 30px;
+
     overflow: hidden;
 
-    border: solid 4px #160940;
     background-color: #00bcd4;
+
+    border: solid 4px #160940;
 
     text-align: center;
     text-decoration: none;
+
     font-weight: bold;
 }
 .inquiry:after {
@@ -96,17 +103,16 @@ body {
 
     width: 100%;
     height: 0;
-    content: "";
     top: 50%;
     left: 50%;
 
-    border: solid 1px #160940;
-    background : #bfdfdf;
-
-    opacity: 0; 
-
     transform: translateX(-50%) translateY(-50%) rotate(45deg);
     transition: .2s;
+
+    content: "";
+    opacity: 0; 
+
+    background : #bfdfdf;
 }
 .inquiry:hover {
     color: rgb(0, 0, 0);
@@ -124,7 +130,7 @@ body {
 
 
 /*画面のメイン部分*/
-.main{
+.main {
     padding: 150px;
 
     text-align: center;
@@ -137,9 +143,10 @@ body {
     color: #0c0c0c;
 
     text-align: center;
-    font-family: Yu Mincho;
-    font-weight: 400;
+
     font-size: 100px;
+    font-weight: 400;
+    font-family: Yu Mincho;
 }
 
 /*メインタイトル以外のメイン部分*/
@@ -147,11 +154,12 @@ body {
     width: 50%;
     margin: 0 auto;
 
+    background-color: #dff3f5;
 
     border: 8px double #090a0c;
-    background-color: #dff3f5;
-    
+  
     text-align: center;
+
     font-size: 25px;
 }
 
@@ -180,6 +188,10 @@ body {
     text-decoration: underline;
 }
 
+.look {
+    margin: 45px auto 0px;
+}
+
 
 /*新規登録／ログイン*/
 p { 
@@ -202,17 +214,28 @@ input[type="checkbox"] {
     margin-bottom: 10%;
     padding-left: 10px;
     
+    background-color: #fafafa;
     
     border: 10px double #090a0c;
-    background-color: #fafafa;
 
     text-align: left;
+
     font-size: 15px;
 }
 
 /*選挙に関する情報のタイトル*/
-.info h2{
+.info h2 {
     width: 890px; 
 
     border-bottom: solid 3px black;
+}
+
+/*フッター*/
+.footer {
+    padding: 30px;
+
+    color: #fafafa;
+    background-color: rgba(87, 101, 87);
+
+    text-align: center;
 }

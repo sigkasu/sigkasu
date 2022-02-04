@@ -1,0 +1,528 @@
+@charset "utf-8";
+/*index,answer.blade.phpの記述*/
+
+
+/*===================== 共通 ======================*/
+
+body {
+    background-image: url('../triangleliblue.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    /* 画像をタイル状に繰り返し表示しない */  
+    background-attachment: fixed;
+    /* コンテンツの高さが画像の高さより大きい時、動かないように固定 */
+}
+
+/*タイトル*/
+.title {
+    margin: 0px auto 25px;
+
+    font-size: 30px;    
+    font-weight: bold;
+    font-family: Yu Mincho;
+}
+
+/*未返答の質問(index), 過去の質問一覧, 未返答の質問(answer)*/
+.unanswered, .past-questions, .Unanswered-questions {
+    position: relative;
+ 
+    width: 1010px;
+    height: auto;
+    margin: 200px auto 100px;
+    margin-right: auto;
+    margin-left: auto;
+    padding: 10px 20px 30px 20px;
+
+    background-color: rgb(187, 211, 235);
+
+    border: solid 5px black;
+}
+
+/*質問・回答　全体*/
+.big {
+    width: 870px;
+    min-height: auto;
+    max-height: 800px;
+    margin: 15px auto 30px;
+
+    overflow-y: scroll;
+
+    background-color: rgb(221, 228, 235);
+
+    border: solid 3.5px black;
+}
+
+/*返答済みの質問, 未返答の質問(index), 過去の質問一覧, 未返答の質問(answer)*/
+.answered-content, .unanswered-content, .pastquestion-content, .unansweredquestions-content {
+    margin: 50px 40px 50px 38px;
+
+    border: solid 3px black;
+}
+
+/*質問*/
+.midium-question {
+    position: relative;
+    display: inline-block;
+
+    width: 763px;
+    padding: 15px 10px;
+    
+    box-sizing: border-box;
+
+    color: #555;
+    background: #FFF;
+
+    font-size: 16px;
+}
+
+/*回答*/
+.midium-answer {
+    position: relative;
+    display: inline-block;
+
+    width: 763px;
+    padding: 10px 10px 20px;
+
+    box-sizing: border-box;
+
+    color: #555;
+    background: #FFF;
+
+    border-top: double 5px black;
+
+    font-size: 16px;
+}
+
+
+/*質問・回答　タイトル*/
+.sub-title {
+    margin: 0px auto 10px;
+    padding: 5px 150px 5px 15px;
+
+    font-size: 20px;
+    font-weight: bolder;
+}
+
+/*質問内容(仮)*/
+.question-contents {
+    padding: 5px 15px;
+
+    white-space: pre-wrap;
+    word-break: break-all;
+}
+
+/*返答する　ボタン*/
+.btn-send {
+    position: absolute;
+
+    top: 27%;
+    right: 5%;
+    padding:5px 10px;
+
+    color: #fafafa;
+    background: #00bcd4;
+
+    border: none;
+    border: solid 2px black;
+
+    text-align: center;
+
+    font-size: 20px;
+}
+.btn-send:hover {
+    color: #fafafa;
+    background: #116a6a;
+}
+
+
+/*================= サブヘッダー =================*/
+
+.sub-header1 {
+    z-index: 1;
+
+    padding: 5px 30px;
+    margin: 75px 40px 0px 925px;
+
+    overflow: hidden;
+
+    background-color: #ccc;
+    background-image: url('../libluetri1.png');
+    background-size:cover;
+
+    border: solid 3px #160940;
+
+    text-align: center;
+    text-decoration: none;
+
+    font-weight: bold;
+}
+
+/*ヘッダー 要素*/
+.sub-header1 li {
+    display: inline-block;
+
+    min-width: 100px;
+
+    list-style: none;
+	list-style-type: none;
+    /*list-style-type:none;→箇条書きの点を消した*/
+}
+
+.sub-header-item {
+    display: block;
+
+    list-style: none;
+}
+
+.sub-header-item select {
+    outline: none;
+}
+
+/*ul：黒ポチの箇条書き*/
+.sub-header1 ul {
+    margin: 0 ;
+    padding: 0 ;
+}
+
+.sub-header1 a {
+    padding: 15px;
+
+    color: #000000;
+
+    text-decoration: none;
+}
+.sub-header1 a:hover {
+    color: #000000;
+    background-color: rgb(111, 134, 250, 0.5);
+}
+
+
+/*=============== index.blade.php =================*/
+
+/*連絡ポスト*/
+.message1 {
+    position: absolute;
+    z-index: 2;
+    top: -20%;
+    left: 60%;
+    display: inline-block;
+    padding: 10px 20px;
+    min-width: 300px;
+    max-width: 800px;
+    color: rgb(0, 0, 0);
+    opacity: 1;
+
+    font-size: 20px;
+    background: #e0edff;
+}
+.message1:before {
+    content: "";
+    position: absolute;
+    z-index: 2;
+    top: 100%;
+    left: 10%;
+    margin-left: -15px;
+    border: 15px solid transparent;
+    border-top: 15px solid #e0edff;
+}
+
+.unanswered-message {
+    margin: 0;
+    padding: 0;
+    text-align: left;
+}
+
+.post-image1 {
+    position: absolute;
+    z-index: 1;
+    top: 53%;
+    right:42%
+}
+.post-image .active1 {
+    position: absolute;
+    z-index: 0;
+    left: 0;
+    top: 0;
+    opacity: 1;
+    transition: 0.5s; 
+}
+.active1 {
+    height: 200px;
+    width: 225px;
+}
+
+/*連絡ポスト(返答済、未返答の質問がそれぞれないとき)*/
+.message2 {
+    position: absolute;
+    z-index: 2;
+    top: -50%;
+    left: 50%;
+    display: inline-block;
+    padding: 10px 20px;
+    min-width: 240px;
+    color: #555;
+    opacity: 0;
+
+    font-size: 16px;
+    background: #e0edff;
+}
+.message2:before {
+    content: "";
+    position: absolute;
+    z-index: 2;
+    top: 100%;
+    left: 10%;
+    margin-left: -15px;
+    border: 15px solid transparent;
+    border-top: 15px solid #e0edff;
+}
+
+.unanswered-message {
+    margin: 0;
+    padding: 0;
+    text-align: left;
+}
+
+.post-image2 {
+    position: absolute;
+    z-index: 1;
+    top: 40%;
+    margin: 50px auto 0px 120px;
+}
+.post-image2 .active2 {
+    position: absolute;
+    z-index: 0;
+    left: 0;
+    top: 0;
+    opacity: 0;
+    transition: 0.5s; 
+}
+.post-image2:hover .active2 {
+    opacity: 1;
+}
+.post-image2:hover .tv {
+    opacity: 1;
+}
+.stop, .active2 {
+    height: 100px;
+    width: 125px;
+}
+
+/*返答済みの質問*/
+.answered{
+    position: relative;
+ 
+    width: 1010px;
+    height: auto;
+    margin: 200px auto 100px;
+    margin-right: auto;
+    margin-left: auto;
+    padding: 10px 20px 30px 20px;
+
+    background-color: rgb(187, 211, 235);
+
+    border: solid 5px black;
+}
+
+/*返答済みの質問＆過去の質問一覧　回答*/
+.answer-contents {
+    padding: 5px 15px;
+
+    white-space: pre-wrap;
+    word-break: break-all;
+}
+
+/*未返答の質問　質問*/
+.question-contents2 {
+    padding: 5px 15px;
+
+    white-space: pre-wrap;
+    word-break: break-all;
+}
+
+/*返答内容*/
+.Unansweredarea {
+    position: relative;
+
+    margin: 10px 20px 20px 20px;
+
+    background-color: rgb(255, 255, 255);
+
+    line-height: 1.8;
+
+    font-size: 1rem;
+}
+
+.UnansweredTextarea__dummy {
+    visibility: hidden;
+
+    min-height: 100px;
+    padding: 5px 150px 5px 15px;
+
+    box-sizing: border-box;
+
+    overflow: hidden;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+
+    border: 1px solid;
+}
+
+.Unanswered-sentence {
+    position: absolute;
+    display: block;
+    resize: none;
+
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    padding: 5px 150px 5px 15px;
+
+    overflow: hidden;
+    box-sizing: border-box;
+
+    color: inherit;
+    background-color: transparent;
+
+    border: 2px solid #000000;
+    border-radius: 4px;
+
+    font: inherit;
+    letter-spacing: inherit;
+}
+
+.Unanswered-sentence:focus{
+    box-shadow: 0 0 0 4px rgba(35, 167, 195, 0.3);
+
+    outline: 0;
+}
+
+/*フッター*/
+.index-footer {
+    margin: 500px auto 0px;
+    padding: 20px;
+
+    color: #fafafa;
+    background-color: rgba(87, 101, 87);
+
+    text-align: center;
+}
+
+
+/*=============== answer.blade.php ================*/
+
+/*返答内容*/
+.Unanswered_questionarea {
+    position: relative;
+
+    margin: 10px 20px 20px 20px;
+
+    background-color: rgb(255, 255, 255);
+
+    line-height: 1.8;
+
+    font-size: 1rem;
+}
+
+.Unanswered_question-Textarea__dummy {
+    visibility: hidden;
+
+    min-height: 100px;
+    padding: 5px 150px 5px 15px;
+
+    box-sizing: border-box;
+
+    overflow: hidden;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+
+    border: 1px solid;
+}
+
+.Unanswered_question-sentence {
+    position: absolute;
+    display: block;
+    resize: none;
+
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    padding: 5px 150px 5px 15px;
+
+    overflow: hidden;
+    box-sizing: border-box;
+
+    color: inherit;
+    background-color: transparent;
+
+    border: 2px solid #000000;
+    border-radius: 4px;
+
+    font: inherit;
+    letter-spacing: inherit;
+}
+.Unanswered_question-sentence:focus {
+    box-shadow: 0 0 0 4px rgba(35, 167, 195, 0.3);
+
+    outline: 0;
+}
+
+.message3 {
+    position: absolute;
+    z-index: 2;
+    top: 0%;
+    left: 60%;
+    display: inline-block;
+    padding: 10px 20px;
+    min-width: 300px;
+    max-width: 800px;
+    color: rgb(0, 0, 0);
+    opacity: 1;
+
+    font-size: 20px;
+    background: #e0edff;
+}
+.message3:before {
+    content: "";
+    position: absolute;
+    z-index: 2;
+    top: 100%;
+    left: 10%;
+    margin-left: -15px;
+    border: 15px solid transparent;
+    border-top: 15px solid #e0edff;
+}
+
+.post-image3 {
+    position: absolute;
+    z-index: 1;
+    top: 45%;
+    right:42%
+}
+.post-image .active3 {
+    position: absolute;
+    z-index: 0;
+    left: 0;
+    top: 0;
+    opacity: 1;
+    transition: 0.5s; 
+}
+.active3 {
+    height: 200px;
+    width: 225px;
+}
+
+/*フッター*/
+.answer-footer {
+    margin: 387px auto 0px;
+    padding: 20px;
+
+    color: #fafafa;
+    background-color: rgba(87, 101, 87);
+
+    text-align: center;
+}

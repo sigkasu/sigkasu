@@ -10,19 +10,21 @@
 }
 
 
-/*header 全体*/
+/*ヘッダー 全体*/
 header {
     position: sticky;
     z-index: 3;
 
     width: 100%;
-    padding: 15px 0 0;
-    margin: 0 auto;
+    height: 155px;
     top: 0;
+    margin: 0 auto;
+    padding: 15px 0 0;
 
     background-color: rgba(149, 146, 147, 0.5);
 
     text-align: center;
+
     font-weight: bold;
 }
 
@@ -34,7 +36,8 @@ header {
     margin: 10px auto 0px;
 
     align-items: center;
-    font-size: 35px;
+
+    font-size: 30px;
 }
 
 
@@ -45,15 +48,18 @@ header {
     background-color: rgba(87, 101, 87, 0.3);
 }
 .logo img {
-    height: 62px;
+    height: 54px;
 }
+.logo:hover {
+    background-color: rgba(34, 39, 34, 0.3);
 
+}
 
 /*タイトル*/
 .headline a {
     display: inline-block;
 
-    padding: 5px 50px;
+    padding: 5px 30px;
 
     color: #fafafa;
     background-color: rgba(87, 101, 87, 0.3);
@@ -76,12 +82,13 @@ header {
 }
 .search-button {
     position: absolute;
+    
     top: 40px;
     right: 42px;
 
     border: 0px;
 }
-.search-button:hover{
+.search-button:hover {
     cursor: pointer;
     opacity:0.5;
 }
@@ -95,34 +102,32 @@ header {
 /*ヘッダー 全体*/
 .main-header {
     margin: 0 auto;
-    padding: 10px 0 0;
+    padding: 15px 0 0;
     
     text-align: center;
 }
 
 /*ヘッダー 要素*/
 .main-header li {
-    display: inline-block;
     position: relative;
+    display: inline-block;
 
     width: 16%;
     min-width: 90px;
 
     list-style: none;
 }
-
-.main-header li:first-child {
-    margin-top: 0px;
-}
-
 .main-header li:hover ul {
     display: block;
+}
+.main-header li:first-child {
+    margin-top: 0px;
 }
 
 .main-header a {
     display: block;
     
-    padding: 10px 10px 23px 10px;
+    padding: 15px 10px;
 
     color: #000000;
     
@@ -141,36 +146,46 @@ header {
     margin-left: -40px;
     padding: 5px;
 
-    border: solid 2px black;
-	border-radius: 5px;
     color: #000000;
     background-color: rgb(123, 183, 221);
+
+    border: solid 2px black;
+	border-radius: 5px;
     
     font-weight: bold;
 }
+.form-group input:hover {
+    background-color: rgb(102, 152, 184);
+}
 
-select {
-    outline: none;
-    margin-bottom: 20px;
-	padding: 7px 30px 7px 10px;
+/*検索　ボタン*/
+.serch {
+	padding: 7px 45px 7px 0px;
     
+    outline: none;
+
+    background-color: rgb(200, 199, 199);
+
 	border: none;
 	border-radius: 5px;
-	background-color: rgb(200, 199, 199);
     
+    text-align: center;
+    line-height: 1.1em;
+
+    font-size: 93%;
     font-weight: bold;
-	font-size: 93%;
-	line-height: 1.1em;
-    
+
 	-webkit-appearance: none;
 	-moz-appearance: none;
 	appearance: none;
 }
-select::-ms-expand{
+.serch::-ms-expand {
     display: none;
 }
 
 option {
+    margin: 20 auto;
+
     background-color: #fafafa;
 }
 
@@ -181,9 +196,10 @@ option {
 
     text-decoration: none;
 }
-.main-header-itemA ul{
-    display: none;
+
+.main-header-itemA ul {
     position: absolute;
+    display: none;
 
     height: auto;
     margin: 0;
@@ -201,6 +217,7 @@ option {
 }
 
 .main-header-itemA ul li a {
-    font-weight: normal;
     line-height: 20px;
+
+    font-weight: normal;
 }
