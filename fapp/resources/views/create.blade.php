@@ -2,6 +2,7 @@
 
 @section('title', 'マイページ')
 @include('layouts.header')
+@include('layouts.footer')
 @section('contents')
 
     <head>
@@ -71,7 +72,7 @@
                         </tr>
                         <tr>
                             <td>経歴</td>
-                            <td><textarea id="career" type="text" class="create-career" name="career" value="{{ old('career') }}"></textarea>
+                            <td><textarea id="career" type="text" class="create-career" name="career" value="{{ old('career') }}">{{ old('career') }}</textarea>
                                 @if ($errors->has('career'))
                                     <div class="create-feedback1">{{$errors->first('career')}}</div>
                                 @endif
@@ -82,7 +83,7 @@
                     <div class="sentence">
                         <div class="introduction">
                             <div class="title1">自己紹介＆公約<br></div>
-                            <textarea id="introduction" type="text" class="create-introductions" name="introduction" value="{{ old('introduction') }}"></textarea>
+                            <textarea id="introduction" type="text" class="create-introductions" name="introduction" value="{{ old('introduction') }}">{{ old('introduction') }}</textarea>
                             @if ($errors->has('introduction'))
                                 <div class="create-feedback2">{{$errors->first('introduction')}}</div>
                             @endif
@@ -90,7 +91,7 @@
 
                         <div class="histories">
                             <div class="title2">出馬履歴<br></div>
-                            <textarea id="history" type="text" class="create-histories" name="history" value="{{ old('history') }}"></textarea>
+                            <textarea id="history" type="text" class="create-histories" name="history">{{ old('history') }}</textarea>
                             @if ($errors->has('history'))
                                 <div class="create-feedback2">{{$errors->first('history')}}</div>
                             @endif

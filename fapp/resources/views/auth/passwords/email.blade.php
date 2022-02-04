@@ -10,7 +10,7 @@
     @endif
 
     <div class="email-title"><h2>パスワードを忘れた方用</h2></div>
-    <div class="backtop1">
+    <div class="backtop3">
         <h2>
             <a href="/toppage">トップページへ戻る</a>
         </h2>
@@ -40,5 +40,7 @@
             </button>
         </div>
     </form>
- 
+    <footer class="email-footer">
+        © 2022 E-pick
+    </footer> 
 </body>

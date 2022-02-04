@@ -2,6 +2,7 @@
 
 @section('title', 'つぶやき')
 @include('layouts.header')
+@include('layouts.footer')
 
 @section('contents')
 <head>
@@ -69,7 +70,8 @@
                                     @method('DELETE')
                                     @csrf
                                     <button type="submit" class="btn btn-danger ml-3" onclick="confirmFunction2()">
-                                    <img src="trash.jpg" onmouseover="this.src='trash-open.jpg'" onmouseout="this.src='trash.jpg'" />
+                                    <img src="{{ asset('trash-close.png') }}" alt="">
+                                    <img src="{{ asset('trash-open.png') }}" alt="" class="active">
                                     </button>
                                 </form>
                             @endif
@@ -77,7 +79,7 @@
                     @endforeach
                 @else
                     <div class="mutter-output">
-                        <div class="mutter-contents">つぶやきはありません</div>
+                        <div class="mutter-contents">つぶやきはありません。</div>
                     </div>
                 @endif
             </div>

@@ -38,7 +38,7 @@
             <tr>
                 <th>質問内容</th>
                 <td>
-                    <textarea class="inquiry" type="text" name="question" size="400" placeholder="内容を400字以内で入力してください">{{ old('question') }}</textarea>
+                    <textarea class="inquiry" type="text" name="question" size="400" placeholder="内容を400字以内で入力してください。">{{ old('question') }}</textarea>
                         @if ($errors->has('question'))
                             <div class="support-feedback2">{{$errors->first('question')}}</div>
                         @endif

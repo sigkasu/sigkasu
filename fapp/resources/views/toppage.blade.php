@@ -25,7 +25,7 @@
             @auth
                 <a href="{{ route('logout') }}" onclick="event.preventDefault();
                 document.getElementById('logout-form').submit(); alert('ログアウトしました')">
-                <h2>・有権者用のページを見る</h2></a><br>
+                <div class="look"><h2>・有権者用のページを見る</h2></div></a><br>
                 <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                     @csrf
                 </form>
@@ -33,6 +33,7 @@
                 <label for="btn">
                     <h2>・候補者の方はコチラ</h2>
                 </label>
+
                 <input type="checkbox" id="btn">       
                         <p><a href="/register">新規登録</a>／<a href="/login">ログイン</a></p>
             @else
@@ -51,12 +52,13 @@
         <h3>・〇月〇日〇曜日　第〇回〇〇選挙開催</h3>
         <h3>・〇月〇日〇曜日　第〇回〇〇選挙閉幕</h3>
         <h3>・〇月〇日〇曜日　第〇回〇〇選挙開催</h3>
-        <h3>・あああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああ</h3>
+        <h3>・〇月〇日〇曜日　第〇回〇〇選挙開催</h3>
         <h3>・〇月〇日〇曜日　第〇回〇〇選挙閉幕</h3>
         <h3>・〇月〇日〇曜日　第〇回〇〇選挙開催</h3>
         <h3>・〇月〇日〇曜日　第〇回〇〇選挙閉幕</h3>
         <h3>・〇月〇日〇曜日　第〇回〇〇選挙開催</h3>
     </div>
+
     <footer class="footer">
         © 2022 E-pick
     </footer>

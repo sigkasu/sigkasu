@@ -8,6 +8,12 @@
         <h2>新規登録</h2>
     </div>
 
+    <div class="backtop1">
+        <h2>
+            <a href="/toppage">トップページへ戻る</a>
+        </h2>
+    </div>
+
     <script>
         function confirmFunction1() {
             ret=confirm("この内容で登録しますか？");
@@ -19,13 +25,13 @@
             @csrf
             <tr>
                 <th>お名前</th>
-                <td><input type="text" name="name" size="50" placeholder="お名前" style="width: 350px; height: 50px;">
+                <td><input type="text" name="name" size="50" value="{{ old('name') }}" placeholder="お名前" style="width: 350px; height: 50px;">
                 </td>
             </tr>
 
             <tr>
                 <th>メールアドレス</th>
-                <td><input type="email" name="email" size="50" placeholder="メールアドレス" style="width: 350px; height: 50px;">
+                <td><input type="email" name="email" size="50" value="{{ old('email') }}" placeholder="メールアドレス" style="width: 350px; height: 50px;">
                 </td>
             </tr> 
   
@@ -36,18 +42,23 @@
                         <option value="{{ $selection }}">{{ $selection }}</option>
                     @endforeach
                 </select>
+                @error('slection')
+                    <span class="invalid-feedback" role="alert">
+                        選挙を選択してください。
+                    </span>
+                @enderror                
                 </td>
             </tr>
 
             <tr>
                 <th>パスワード</th>
                 <td>
-                    <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password" placeholder="8~16文字で入力してください" style="width: 350px; height: 50px; margin: 0px auto 10px;"><br>
+                    <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password" value="{{ old('password') }}" placeholder="8~16文字で入力してください。" style="width: 350px; height: 50px;"><br>
 
                     @error('password')
-                        <span class="invalid-feedback" role="alert">
+                        <div class="invalid-feedback" role="alert">
                             パスワード入力に誤りがあります。<br>再入力してください。
-                        </span>
+                        </div>
                     @enderror
                 </td>
             </div>
@@ -55,14 +66,18 @@
             <tr>
                 <th>パスワード(再入力)</th>
                 <td>
-                    <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password" placeholder="パスワード（確認）" style="width: 350px; height: 50px;">
+                    <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password" value="{{ old('password_confirmation') }}" placeholder="パスワード（確認）" style="width: 350px; height: 50px;">
                 </td>
             </tr>
         </table>
   
-        <div class="button-placement">
+        <div class="register-button-placement">
             <button class ="inside-button" onclick="confirmFunction1()" type="submit">登録
             </button>
         </div>
     </form>
+
+    <footer class="register-footer">
+        © 2022 E-pick
+    </footer>
 </body>

@@ -2,6 +2,7 @@
 
 @section('title', '質問一覧')
 @include('layouts.header')
+
 @section('contents')
 <head>
     <link rel="stylesheet" href="{{ asset('css/question_index.css') }}">
@@ -21,32 +22,31 @@
             
             <div class="mutter">
                 @if(count($answered_questions) == 0 && count($unanswered_questions) == 0)
-                    <div class="post-image">
-                        <img src="{{ asset('post-close.png') }}" alt="" class="stop">
-                        <img src="{{ asset('post-open.png') }}" alt="" class="active">
-                        <div class="message tv">
+                    <div class="post-image1">
+                        <img src="{{ asset('post-open.png') }}" alt="" class="active1">
+                        <div class="message1 tv">
                             <div class="unanswered-message">
-                                返答済の質問はありません
-                                未返答の質問はありません
+                                返答済の質問はありません。
+                                未返答の質問はありません。
                             </div>
                         </div>
                     </div>
                 @else
                     <div class="post-messages">
-                        <div class="post-image">
+                        <div class="post-image2">
                             @if(count($answered_questions) != 0 && count($unanswered_questions) != 0)
                             @else
                                 <img src="{{ asset('post-close.png') }}" alt="" class="stop">
-                                <img src="{{ asset('post-open.png') }}" alt="" class="active">
-                                <div class="message tv">
+                                <img src="{{ asset('post-open.png') }}" alt="" class="active2">
+                                <div class="message2 tv">
                                     @if(count($answered_questions) == 0)
                                         <div class="unanswered-message">
-                                            返答済の質問はありません
+                                            返答済の質問はありません。
                                         </div>
                                     @endif
                                     @if(count($unanswered_questions) == 0)
                                         <div class="unanswered-message">
-                                            未返答の質問はありません
+                                            未返答の質問はありません。
                                         </div>
                                     @endif
                                 </div> 
@@ -93,7 +93,7 @@
                                             <div class="sub-title">返答内容</div>
                                             <div class="Unansweredarea">
                                                 <div class="UnansweredTextarea__dummy" aria-hidden="true"></div>
-                                                <textarea class="Unanswered-sentence" type="text" name="answer" size="400" placeholder="内容を400字以内で入力してください" >{{ old('answer') }}</textarea>
+                                                <textarea class="Unanswered-sentence" type="text" name="answer" size="400" placeholder="内容を400字以内で入力してください。" >{{ old('answer') }}</textarea>
                                                 <button type="submit" class="btn-send">返答する</button>
                                             </div>
                                         </form>
@@ -134,10 +134,13 @@
                         @endforeach
                     </div>
                 @else
-                    <div class="not-title">返答済の質問はありません</div>
+                    <div class="not-title">返答済の質問はありません。</div>
                 @endif
             </div>
         @endif
     </div>
+    <footer class="index-footer">
+        © 2022 E-pick
+    </footer>
 </body>
 @endsection

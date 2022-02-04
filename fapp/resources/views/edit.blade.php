@@ -2,6 +2,7 @@
 
 @section('title', 'マイページ')
 @include('layouts.header')
+@include('layouts.footer')
 @section('contents')
 
     <head>
@@ -14,6 +15,8 @@
     </head>
 
     <body>
+    <form action="{{ route('mypage.index') }}" method="get" id="back">
+    </form>
         <div class="overall">
             <div class="create_overall1">
                 @foreach($users as $users)
@@ -81,8 +84,9 @@
                 <div class="text-center">
                     <button type="submit" onclick="confirmFunction1()" class="btn btn-create ml-3" name='action' value='add'>編集</button>
         </form>
-                    <button type="button" class="btn btn-return" onClick="history.back()">戻る</button>
+                    
+                    <button type="submit" class="btn btn-return" form="back">戻る</button>
                 </div>
-            </div>
+        </div>
     </body>
 @endsection

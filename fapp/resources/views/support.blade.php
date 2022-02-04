@@ -11,10 +11,11 @@
 </head>
 <body>
 @include('layouts.header')
+@include('layouts.footer')
 @section('contents')
 
     @if(session('flash_message'))
-        <div class="flash-message2">
+        <div class="flash-message1">
             {{ session('flash_message') }}
         </div>
     @endif
@@ -47,14 +48,14 @@
             <tr>
                 <th>お問い合わせ内容</th>
                 <td>
-                    <textarea class="inquiry" type="text" name="message" size="400" placeholder="内容を400字以内で入力してください" >{{ old('message') }}</textarea>
+                    <textarea class="inquiry" type="text" name="message" size="400" placeholder="内容を400字以内で入力してください。" >{{ old('message') }}</textarea>
                         @if ($errors->has('message'))
                             <div class="support-feedback2">{{$errors->first('message')}}</div>
                         @endif
                 </td>
             </tr>
         </table>
-        <div class="button-placement">
+        <div class="support-button-placement">
             <button class ="inside-button" onclick="confirmFunction1()" type="submit">送信</button>
         </div>
     </form>

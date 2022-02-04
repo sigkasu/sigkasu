@@ -12,7 +12,7 @@
 <header>
     <div class="tophead">
         <div class="logo">
-            <a href="{{ route('toppage') }}"><img src="{{asset('E-pick1.png') }}"></a>
+            <a href="{{ route('toppage') }}"><img src="{{ asset('E-pick1.png') }}"></a>
         </div>
 
         <div class="headline">
@@ -35,7 +35,7 @@
         <li class="main-header-itemA">
             <div class="form-group">
             {!! Form::open(['route' => 'home', 'method' => 'get']) !!}
-                {!! Form::select('selection', Config::get('selection'), ['class' => 'form-control']) !!}
+                {!! Form::select('selection', Config::get('selection'), '指定なし',['class' => 'serch']) !!}
             {!! Form::submit('検索') !!}
             {!! Form::close() !!}
             </div>

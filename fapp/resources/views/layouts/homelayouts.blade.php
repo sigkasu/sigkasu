@@ -11,5 +11,6 @@
         @yield('header')
         @yield('subheader')
         @yield('contents')
+        @yield('footer')
     </body>
 </html>

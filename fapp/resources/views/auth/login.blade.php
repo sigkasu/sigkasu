@@ -6,11 +6,17 @@
 
 <body>
     @error('email')
-        <div class="flash-message2">入力に誤りがあります</div>
+        <div class="flash-message2">入力に誤りがあります。</div>
     @enderror('email')
 
     <div class="login-title">
         <h2>ログイン画面</h2>
+    </div>
+
+    <div class="backtop3">
+        <h2>
+            <a href="/toppage">トップページへ戻る</a>
+        </h2>
     </div>
 
     <form action="{{ route('login') }}" method='post'>
@@ -24,17 +30,21 @@
 
             <tr>
                 <th>パスワード</th>
-                <td><input id ="password" type="password" name="password" size="50" placeholder="8～16文字で入力してください" required autocomplete="current-password" style="width: 20em; height: 50px;" pattern="^[a-zA-Z0-9]+$" minlength="8" maxlength="16">
+                <td><input id ="password" type="password" name="password" size="50" placeholder="8～16文字で入力してください。" required autocomplete="current-password" style="width: 20em; height: 50px;" pattern="^[a-zA-Z0-9]+$" minlength="8" maxlength="16">
                 </td>
             </tr>
         </table>
 
-        <div class="button-placement">
+        <div class="login-button-placement">
             <button class="inside-button" type="submit">ログイン</button>
         </div>
     
         <div class="lost-item">
             ※パスワードを忘れた方は<a href="{{ route('password.request') }}">コチラ</a>
         </div>
-    </form>                 
+    </form>      
+    
+    <footer class="login-footer">
+        © 2022 E-pick
+    </footer>           
 </body>

@@ -40,7 +40,7 @@
                             <div class="unansweredquestions-content">
                                 <div class="midium-question">
                                     <div class="sub-title">質問</div>
-                                    <div class="quesetion-contents">{{ $question->question }}</div>
+                                    <div class="question-contents">{{ $question->question }}</div>
                                 </div>
                                 <div class="midium-answer">
                                     <form style="display:inline" action="{{ route('questions.answer', $question->id) }}" method="post">
@@ -48,7 +48,7 @@
                                         <div class="sub-title">返答内容</div>
                                         <div class="Unanswered_questionarea">
                                             <div class="Unanswered_question-Textarea__dummy" aria-hidden="true"></div>
-                                            <textarea class="Unanswered_question-sentence" type="text" name="answer" size="400" placeholder="内容を400字以内で入力してください" >{{ old('answer') }}</textarea>
+                                            <textarea class="Unanswered_question-sentence" type="text" name="answer" size="400" placeholder="内容を400字以内で入力してください。" >{{ old('answer') }}</textarea>
                                             <button type="submit" class="btn btn-send ml-3" onclick="confirmFunction1()">返答する</button>
                                         </div>
                                     </form>
@@ -58,10 +58,21 @@
                     </div>
                 </div>
             @else
-                <div class="not-title">未返答の質問はありません</div>
+                <div class="post-image3">
+                    <img src="{{ asset('post-open.png') }}" alt="" class="active3">
+                        <div class="message3 tv">
+                            <div class="unanswered-message">
+                            未返答の質問はありません
+                            </div>
+                        </div>
+                    </div>
             @endif
         </div>
         <script src="{{ asset('tweets.js') }}"></script>
     </div>
+
+    <footer class="answer-footer">
+        © 2022 E-pick
+    </footer>
 </body>
 @endsection

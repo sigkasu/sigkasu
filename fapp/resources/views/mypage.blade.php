@@ -2,6 +2,7 @@
 
 @section('title', 'マイページ')
 @include('layouts.header')
+
 @section('contents')
 <head>
     <link rel="stylesheet" href="{{ asset('css/mypage.css') }}">
@@ -15,12 +16,18 @@
 @endif
 @if(empty($mypage))
     @if($id == $user_id)
-        <div class="new">あなたはまだマイページを作成していません。<br>下記のボタンから入力してください。</div>
+        <div class="new1">あなたはまだマイページを作成していません。<br>下記のボタンから入力してください。</div>
         <button type="button" class="btn btn-new1 mb-3 d-block w-100" onclick="location.href='{{ route('mypage.create') }}'">
             新規作成
         </button>
+        <footer class="footer1">
+            © 2022 E-pick
+        </footer> 
     @else
-        <div class="new">マイページが作成されていません</div>
+        <div class="new2">マイページが作成されていません。</div>
+        <footer class="footer2">
+            © 2022 E-pick
+        </footer> 
     @endif
 
 @else
@@ -35,9 +42,15 @@
         </ul>
     </div>
 
-        <button type="button" class="btn btn-editing1 ml-3" onclick="location.href='{{ route('mypage.edit', $mypage->id) }}'">
-        編集
-        </button>
+        @if(session('flash_message'))
+            <button type="button" class="btn btn-editing1-1 ml-3" onclick="location.href='{{ route('mypage.edit', $mypage->id) }}'">
+            編集
+            </button>
+        @else
+            <button type="button" class="btn btn-editing1-2 ml-3" onclick="location.href='{{ route('mypage.edit', $mypage->id) }}'">
+            編集
+            </button>
+        @endif
     @else
     <div class="sub-header1">
         <ul>
@@ -94,6 +107,9 @@
             </button>
         @endif
     </div>
+    <footer class="footer3">
+        © 2022 E-pick
+    </footer> 
 @endif
 </body>
 @endsection

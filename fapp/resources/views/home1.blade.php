@@ -4,6 +4,8 @@
 @section('title', 'ホーム画面')
 
 @include('layouts.header')
+
+@include('layouts.footer')
 <head>
 <link rel="stylesheet" href="{{ asset('css/home.css') }}">
 </head>
@@ -19,7 +21,7 @@
                     <tr>
                         <a href="{{ route('mypage.show', $item->id) }}">
                             <td><img src="{{ url($item->image) }}"></td><br>
-                            <div class="aaa"><td>{{$item->name}}</td></div>
+                            <div class="candidate_name"><td>{{$item->name}}</td></div>
                         </a>
                     </tr>
                 </div>

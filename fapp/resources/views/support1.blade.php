@@ -11,6 +11,7 @@
 </head>
 <body>
 
+@include('layouts.footer')
 @section('contents')
 
     @if(session('flash_message'))
@@ -34,7 +35,7 @@
             @csrf
             <tr>
                 <th>お名前</th>
-                <td><input type="text" name="name" class="name-mail" size="70" text-size="10" placeholder="お名前" style="height:50px;" value="{{ old('name') }}">
+                <td><input type="text" name="name" class="name-mail" size="70" text-size="10" placeholder="お名前" style="height: 50px;" value="{{ old('name') }}"><br>
                     @if ($errors->has('name'))
                         <div class="support-feedback1">{{$errors->first('name')}}</div>
                     @endif
@@ -43,7 +44,7 @@
 
             <tr>
                 <th>メールアドレス</th>
-                <td><input type="email" name="email" class="name-mail" size="70" placeholder="メールアドレス" style="height:50px;" value="{{ old('email') }}">
+                <td><input type="email" name="email" class="name-mail" size="70" placeholder="メールアドレス" style="height: 50px;" value="{{ old('email') }}"><br>
                     @if ($errors->has('email'))
                         <div class="support-feedback1">{{$errors->first('email')}}</div>
                     @endif
@@ -53,14 +54,14 @@
             <tr>
                 <th>お問い合わせ内容</th>
                 <td>
-                    <textarea class="inquiry" type="text" name="message" size="400" placeholder="内容を400字以内で入力してください" value="{{ old('message') }}"></textarea>
+                    <textarea class="inquiry" type="text" name="message" size="400" placeholder="内容を400字以内で入力してください。" value="{{ old('message') }}"></textarea>
                         @if ($errors->has('message'))
                             <div class="support-feedback2">{{$errors->first('message')}}</div>
                         @endif
                 </td>
             </tr>
         </table>
-        <div class="button-placement">
+        <div class="support1-button-placement">
             <button class ="inside-button" onclick="confirmFunction1()" type="submit">送信</button>
         </div>
     </form>
