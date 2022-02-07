@@ -40,6 +40,13 @@ h1 {
 
     flex-direction: column;
 }
+
+/*該当する候補者がいなかった時に出すメッセージ*/
+.no-match {
+    text-align: center;
+    margin: 20px;
+}
+
 .candidate img {
     width: 100px;
     height: 150px;
