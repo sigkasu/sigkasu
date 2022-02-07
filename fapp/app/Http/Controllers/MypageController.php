@@ -148,15 +148,32 @@ class MypageController extends Controller
             $mypage->movie = $request->movie;
             $mypage->save();
         }
-        $mypage->party = $request->party;
-        $mypage->birth = $request->birth;
-        $mypage->gender = $request->gender;
-        $mypage->career = $request->career;
-        $mypage->introduction = $request->introduction;
-        $mypage->history = $request->history;
-        $mypage->save();
+        if($request->party) {
+            $mypage->party = $request->party;
+            $mypage->save();
+        }
+        if($request->birth) {
+            $mypage->birth = $request->birth;
+            $mypage->save();
+        }
+        if($request->gender) {
+            $mypage->gender = $request->gender;
+            $mypage->save();
+        }
+        if($request->career) {
+            $mypage->career = $request->career;
+            $mypage->save();
+        }
+        if($request->introduction) {
+            $mypage->introduction = $request->introduction;
+            $mypage->save();
+        }
+        if($request->history) {
+            $mypage->history = $request->history;
+            $mypage->save();
+        }
 
-        session()->flash('flash_message', '編集しました。');
+        session()->flash('flash_message', '更新しました。');
         return redirect()->route('mypage.index');
     }
 

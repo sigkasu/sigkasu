@@ -43,7 +43,7 @@ class SupportController extends Controller
 
         Mail::to('natu.fairytail@gmail.com')->send(new SupportSendmail($data));
 
-        session()->flash('flash_message', '送信いたしました！');
+        session()->flash('flash_message', '送信しました。');
         return redirect('support');
     }
 }
