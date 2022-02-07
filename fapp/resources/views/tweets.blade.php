@@ -37,7 +37,7 @@
                 <div class="FlexTextarea__dummy" aria-hidden="true"></div>
                     <textarea class="Tweet-sentence" name="tweet" id="tweet">{{ old('tweet') }}</textarea>
                 </div>
-                <button type="submit" class="btn-primary" name='action' onclick="confirmFunction1()" value='add'>
+                <button type="submit" class="btn-primary" name='action' onclick='return confirm("この内容でつぶやきますか？");' value='add'>
                 つぶやく
                 </button>
             </form>
@@ -69,7 +69,7 @@
                                 <form style="display:inline" action="{{ route('tweets.destroy', $tweet->id) }}" method="post">
                                     @method('DELETE')
                                     @csrf
-                                    <button type="submit" class="btn btn-danger ml-3" onclick="confirmFunction2()">
+                                    <button type="submit" class="btn btn-danger ml-3" onclick='return confirm("削除します。よろしいですか？");'>
                                     <img src="{{ asset('trash-close.png') }}" alt="">
                                     <img src="{{ asset('trash-open.png') }}" alt="" class="active">
                                     </button>

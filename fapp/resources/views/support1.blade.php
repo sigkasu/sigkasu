@@ -3,11 +3,6 @@
     <meta charset="UTF-8">
     <title>お問い合わせ画面</title>
     <link rel="stylesheet" href="{{ asset('css/register.css') }}">
-    <script>
-        function confirmFunction1() {
-            ret=confirm("この内容で送信しますか？");
-        }
-    </script>
 </head>
 <body>
 
@@ -62,7 +57,7 @@
             </tr>
         </table>
         <div class="support1-button-placement">
-            <button class ="inside-button" onclick="confirmFunction1()" type="submit">送信</button>
+            <button class ="inside-button"  type="submit" onclick='return confirm("この内容で作成しますか？");'>送信</button>
         </div>
     </form>
     @endsection

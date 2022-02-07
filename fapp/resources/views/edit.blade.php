@@ -7,22 +7,17 @@
 
     <head>
         <link rel="stylesheet" href="{{ asset('css/mypage.css') }}">
-        <script>
-            function confirmFunction1() {
-                ret=confirm("この内容で編集しますか？");
-            }
-        </script>
     </head>
 
     <body>
     <form action="{{ route('mypage.index') }}" method="get" id="back">
     </form>
         <div class="overall">
+        <form action="{{ route('mypage.update', $mypage->id) }}" method="POST" onclick='return confirm("この内容で編集しますか？");'>
             <div class="create_overall1">
                 @foreach($users as $users)
                     <H1>{{ $users->name }}</H1>
                 @endforeach
-                    <form action="{{ route('mypage.update', $mypage->id) }}" method="POST">
             </div>
                 @csrf
                 <div class="create_images">

@@ -7,17 +7,12 @@
 
     <head>
         <link rel="stylesheet" href="{{ asset('css/mypage.css') }}">
-        <script>
-            function confirmFunction1() {
-                ret=confirm("この内容で作成しますか？");
-            }
-        </script>
     </head>
 
     <body>
         <div class="overall">
             <div class="create_overall1">
-                <form action="{{ route('mypage.store') }}" method="POST">
+                <form action="{{ route('mypage.store') }}" method="POST" >
             </div>
                 @csrf
                 @foreach($users as $users)
@@ -100,7 +95,7 @@
                 </div>
 
                 <div class="text-center">
-                    <button type="submit" class="btn btn-create ml-3" name='action' value='add' onclick="confirmFunction1()">作成</button>
+                    <button type="submit" class="btn btn-create ml-3" name='action' value='add' onclick='return confirm("この内容で作成しますか？");'>作成</button>
         </form>
                     <button type="button" class="btn btn-return" onClick="history.back()">戻る</button>
                 </div>

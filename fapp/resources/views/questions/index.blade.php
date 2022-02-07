@@ -94,7 +94,7 @@
                                             <div class="Unansweredarea">
                                                 <div class="UnansweredTextarea__dummy" aria-hidden="true"></div>
                                                 <textarea class="Unanswered-sentence" type="text" name="answer" size="400" placeholder="内容を400字以内で入力してください。" >{{ old('answer') }}</textarea>
-                                                <button type="submit" class="btn-send">返答する</button>
+                                                <button type="submit" class="btn-send" onclick='return confirm("この内容で返答しますか？");'>返答する</button>
                                             </div>
                                         </form>
                                     </div>

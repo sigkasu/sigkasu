@@ -42,7 +42,7 @@
         <li class="main-header-itemA">
             <a href="#">政党一覧</a>
             <ul>
-                <li><a href="https://www.jimin.jp/">自民党</a></li><br>
+                <li><a href="https://www.jimin.jp/">自由民主党</a></li><br>
                 <li><a href="https://www.cdp-japan.jp/">立憲民主党</a></li><br>
                 <li><a href="http://www.komei.or.jp/">公明党</a></li><br>
                 <li><a href="http://www.o-ishin.jp/">日本維新の会</a></li><br>

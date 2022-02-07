@@ -5,11 +5,6 @@
 @section('contents')
 <head>
     <link rel="stylesheet" href="{{ asset('css/question_index.css') }}">
-    <script>
-        function confirmFunction1() {
-            ret=confirm("この内容で返答しますか？");
-        }
-    </script>
 </head>
 
 <body>
@@ -49,7 +44,7 @@
                                         <div class="Unanswered_questionarea">
                                             <div class="Unanswered_question-Textarea__dummy" aria-hidden="true"></div>
                                             <textarea class="Unanswered_question-sentence" type="text" name="answer" size="400" placeholder="内容を400字以内で入力してください。" >{{ old('answer') }}</textarea>
-                                            <button type="submit" class="btn btn-send ml-3" onclick="confirmFunction1()">返答する</button>
+                                            <button type="submit" class="btn btn-send ml-3" onclick='return confirm("この内容で返答しますか？");'>返答する</button>
                                         </div>
                                     </form>
                                 </div>
