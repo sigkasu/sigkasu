@@ -31,79 +31,81 @@
                             </div>
                         </div>
                     </div>
+                        <footer class="index-footer1">
+                            © 2022 E-pick
+                        </footer>
                 @else
                     <div class="post-messages">
                         <div class="post-image2">
-                            @if(count($answered_questions) != 0 && count($unanswered_questions) != 0)
-                            @else
-                                <img src="{{ asset('post-close.png') }}" alt="" class="stop">
-                                <img src="{{ asset('post-open.png') }}" alt="" class="active2">
-                                <div class="message2 tv">
-                                    @if(count($answered_questions) == 0)
-                                        <div class="unanswered-message">
-                                            返答済の質問はありません。
-                                        </div>
-                                    @endif
-                                    @if(count($unanswered_questions) == 0)
-                                        <div class="unanswered-message">
-                                            未返答の質問はありません。
-                                        </div>
-                                    @endif
-                                </div> 
-                            @endif   
-                        </div>
-                    </div>
-                @endif
-                @if(count($answered_questions) != 0)
-                    <div class="answered">
-                        <div class="title">返答済みの質問</div>
-                        <div class="big">
-                            @foreach($answered_questions as $question)
-                                <div class="answered-content">
-                                    <div class="midium-question">
-                                        <div class="sub-title">質問</div>
-                                            <div class="question-contents">{{ $question->question }}</div>
-                                    </div>
+                            <img src="{{ asset('post-close.png') }}" alt="" class="stop">
+                            <img src="{{ asset('post-open.png') }}" alt="" class="active2">
 
-                                    <div class="midium-answer">
-                                        @if($question->answer)
-                                        <div class="sub-title">返答</div>
-                                            <div class="answer-contents">{{ $question->answer }}</div>
-                                        @endif
+                            <div class="message2 tv">
+                                @if(count($answered_questions) == 0)
+                                    <div class="unanswered-message">
+                                        返答済の質問はありません。
                                     </div>
-                                </div>
-                            @endforeach
+                                @endif
+                                @if(count($unanswered_questions) == 0)
+                                    <div class="unanswered-message">
+                                        未返答の質問はありません。
+                                    </div>
+                                @endif
+                            </div>
                         </div>
                     </div>
-                @endif
-                @if(count($unanswered_questions) != 0)
-                    <div class="unanswered">
-                        <div class="title">未返答の質問</div>
-                        <div class="big">
-                            @foreach($unanswered_questions as $question)
-                                <div class="unanswered-content">
-                                    <div class="midium-question">
-                                        <div class="sub-title">質問</div>
-                                        <div class="question-contents2">{{ $question->question }}</div>
-                                    </div>
+                    @if(count($answered_questions) != 0)
+                        <div class="answered">
+                            <div class="title">返答済の質問</div>
+                            <div class="big">
+                                @foreach($answered_questions as $question)
+                                    <div class="answered-content">
+                                        <div class="midium-question">
+                                            <div class="sub-title">質問</div>
+                                                <div class="question-contents">{{ $question->question }}</div>
+                                        </div>
 
-                                    <div class="midium-answer">
-                                        <form style="display:inline" action="{{ route('questions.update', $question->id) }}" method="post">
-                                        @csrf
-                                            <div class="sub-title">返答内容</div>
-                                            <div class="Unansweredarea">
-                                                <div class="UnansweredTextarea__dummy" aria-hidden="true"></div>
-                                                <textarea class="Unanswered-sentence" type="text" name="answer" size="400" placeholder="内容を400字以内で入力してください。" >{{ old('answer') }}</textarea>
-                                                <button type="submit" class="btn-send" onclick='return confirm("この内容で返答しますか？");'>返答する</button>
-                                            </div>
-                                        </form>
+                                        <div class="midium-answer">
+                                            <div class="sub-title">返答</div>
+                                                <div class="answer-contents">{{ $question->answer }}</div>
+                                        </div>
                                     </div>
-                                </div>
-                            @endforeach
+                                @endforeach
+                            </div>
                         </div>
-                    </div>
+                    @else
+                        <div class="unanswered">
+                            <div class="title">未返答の質問</div>
+                            <div class="big">
+                                @foreach($unanswered_questions as $question)
+                                    <div class="unanswered-content">
+                                        <div class="midium-question">
+                                            <div class="sub-title">質問</div>
+                                            <div class="question-contents2">{{ $question->question }}</div>
+                                        </div>
+
+                                        <div class="midium-answer">
+                                            <form style="display:inline" action="{{ route('questions.update', $question->id) }}" method="post">
+                                            @csrf
+                                                <div class="sub-title">返答内容</div>
+                                                <div class="Unansweredarea">
+                                                    <div class="UnansweredTextarea__dummy" aria-hidden="true"></div>
+                                                    <textarea class="Unanswered-sentence" type="text" name="answer" size="400" placeholder="内容を400字以内で入力してください。" >{{ old('answer') }}</textarea>
+                                                    <button type="submit" class="btn-send" onclick='return confirm("この内容で返答しますか？");'>返答する</button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                @endforeach
+                            </div>
+                        </div>
+                    @endif
+                    <footer class="index-footer2">
+                        © 2022 E-pick
+                    </footer>    
                 @endif
             </div>
+
         <script src="{{ asset('js/tweets.js') }}"></script>
         @else
             <div class="sub-header1">
@@ -115,8 +117,8 @@
                 </ul>
             </div>
 
-            <div class="past-questions">
-                @if(count($answered_questions) != 0)
+            @if(count($answered_questions) != 0)
+                <div class="past-questions">
                     <div class="title">過去の質問一覧</div>
                     <div class="big">
                         @foreach($answered_questions as $question)
@@ -133,14 +135,30 @@
                             </div>      
                         @endforeach
                     </div>
-                @else
-                    <div class="not-title">返答済の質問はありません。</div>
-                @endif
-            </div>
+                </div>
+                <footer class="index-footer2">
+                    © 2022 E-pick
+                </footer>
+            @else
+                <div class="post-messages">
+                    <div class="post-image1">
+                        @if(count($answered_questions))
+                        @else
+                            <img src="{{ asset('post-open.png') }}" alt="" class="active1">
+                            <div class="message1 tv">
+                                <div class="unanswered-message">
+                                    返答済の質問はありません。
+                                </div>
+
+                            </div> 
+                        @endif   
+                    </div>
+                </div>
+                <footer class="index-footer3">
+                    © 2022 E-pick
+                </footer>
+            @endif
         @endif
     </div>
-    <footer class="index-footer">
-        © 2022 E-pick
-    </footer>
 </body>
 @endsection
