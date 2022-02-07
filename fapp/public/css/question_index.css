@@ -203,7 +203,7 @@ body {
 .message1 {
     position: absolute;
     z-index: 2;
-    top: -20%;
+    top: -10%;
     left: 60%;
     display: inline-block;
     padding: 10px 20px;
@@ -227,6 +227,7 @@ body {
 }
 
 .unanswered-message {
+    top: 0;
     margin: 0;
     padding: 0;
     text-align: left;
@@ -235,7 +236,7 @@ body {
 .post-image1 {
     position: absolute;
     z-index: 1;
-    top: 53%;
+    top: 45%;
     right:42%
 }
 .post-image .active1 {
@@ -281,6 +282,17 @@ body {
     margin: 0;
     padding: 0;
     text-align: left;
+}
+
+/*フッター*/
+.index-footer1 {
+    margin: 419px auto 0px;
+    padding: 20px;
+
+    color: #fafafa;
+    background-color: rgba(87, 101, 87);
+
+    text-align: center;
 }
 
 .post-image2 {
@@ -399,8 +411,8 @@ body {
     outline: 0;
 }
 
-/*フッター*/
-.index-footer {
+/*フ/*フッター*/
+.index-footer2 {
     margin: 500px auto 0px;
     padding: 20px;
 
@@ -408,9 +420,16 @@ body {
     background-color: rgba(87, 101, 87);
 
     text-align: center;
+}/*フッター*/
+.index-footer3 {
+    margin: 419px auto 0px;
+    padding: 20px;
+
+    color: #fafafa;
+    background-color: rgba(87, 101, 87);
+
+    text-align: center;
 }
-
-
 /*=============== answer.blade.php ================*/
 
 /*返答内容*/
@@ -470,7 +489,24 @@ body {
 
     outline: 0;
 }
-
+.post-image3 {
+    position: absolute;
+    z-index: 1;
+    top: 45%;
+    right:42%
+}
+.post-image .active3 {
+    position: absolute;
+    z-index: 0;
+    left: 0;
+    top: 0;
+    opacity: 1;
+    transition: 0.5s; 
+}
+.active3 {
+    height: 200px;
+    width: 225px;
+}
 .message3 {
     position: absolute;
     z-index: 2;
@@ -497,28 +533,20 @@ body {
     border-top: 15px solid #e0edff;
 }
 
-.post-image3 {
-    position: absolute;
-    z-index: 1;
-    top: 45%;
-    right:42%
-}
-.post-image .active3 {
-    position: absolute;
-    z-index: 0;
-    left: 0;
-    top: 0;
-    opacity: 1;
-    transition: 0.5s; 
-}
-.active3 {
-    height: 200px;
-    width: 225px;
+/*未返答の質問がある時のフッター*/
+.answer-footer1 {
+    margin: 387px auto 0px;
+    padding: 20px;
+
+    color: #fafafa;
+    background-color: rgba(87, 101, 87);
+
+    text-align: center;
 }
 
-/*フッター*/
-.answer-footer {
-    margin: 387px auto 0px;
+/*未返答の質問がない時のフッター*/
+.answer-footer2 {
+    margin: 419px auto 0px;
     padding: 20px;
 
     color: #fafafa;
