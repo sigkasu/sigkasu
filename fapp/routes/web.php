@@ -44,6 +44,16 @@ Route::resource('tweets', 'App\Http\Controllers\TweetController');
 
 Route::resource('questions', 'App\Http\Controllers\QuestionController');
 
+Route::get('/questions/{question}/index', 'App\Http\Controllers\QuestionController@index')->name('questions.index');
+
+Route::post('/questions/{question}/store', 'App\Http\Controllers\QuestionController@store')->name('questions.store');
+
+Route::get('/questions/{question}/create', 'App\Http\Controllers\QuestionController@create')->name('questions.create');
+
+Route::post('/questions/{question}', 'App\Http\Controllers\QuestionController@update');
+
+Route::post('/questions/{question}/answer', 'App\Http\Controllers\QuestionController@answer')->name('questions.answer');
+
 Route::get('gazou', function(){
 
     $image = Image::make(file_get_contents('http://goo.gl/uDTEzv'));
