@@ -42,7 +42,7 @@
                         <option value="{{ $selection }}">{{ $selection }}</option>
                     @endforeach
                 </select>
-                @error('slection')
+                @error('selection')
                     <span class="invalid-feedback" role="alert">
                         選挙を選択してください。
                     </span>

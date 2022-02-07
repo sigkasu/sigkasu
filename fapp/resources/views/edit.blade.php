@@ -13,7 +13,7 @@
     <form action="{{ route('mypage.index') }}" method="get" id="back">
     </form>
         <div class="overall">
-        <form action="{{ route('mypage.update', $mypage->id) }}" method="POST" onclick='return confirm("この内容で編集しますか？");'>
+        <form action="{{ route('mypage.update', $mypage->id) }}" method="POST">
             <div class="create_overall1">
                 @foreach($users as $users)
                     <H1>{{ $users->name }}</H1>
@@ -77,7 +77,7 @@
                 </div>
 
                 <div class="text-center">
-                    <button type="submit" onclick="confirmFunction1()" class="btn btn-create ml-3" name='action' value='add'>編集</button>
+                    <button type="submit" class="btn btn-create ml-3" name='action' value='add' onclick='return confirm("この内容で更新しますか？");'>更新</button>
         </form>
                     
                     <button type="submit" class="btn btn-return" form="back">戻る</button>

@@ -51,7 +51,7 @@
             </tr>
         </table>
         <div class="support-button-placement">
-            <button class ="inside-button" onclick='return confirm("この内容で作成しますか？");'>
+            <button class ="inside-button" onclick='return confirm("この内容で送信しますか？");'>送信
             </button>
         </div>
     </form>

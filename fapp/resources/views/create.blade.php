@@ -12,7 +12,7 @@
     <body>
         <div class="overall">
             <div class="create_overall1">
-                <form action="{{ route('mypage.store') }}" method="POST" >
+                <form action="{{ route('mypage.store') }}" method="POST">
             </div>
                 @csrf
                 @foreach($users as $users)

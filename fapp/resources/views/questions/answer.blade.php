@@ -52,6 +52,9 @@
                         @endforeach
                     </div>
                 </div>
+                <footer class="answer-footer1">
+                    © 2022 E-pick
+                </footer>
             @else
                 <div class="post-image3">
                     <img src="{{ asset('post-open.png') }}" alt="" class="active3">
@@ -60,14 +63,14 @@
                             未返答の質問はありません
                             </div>
                         </div>
-                    </div>
+                </div>
+                <footer class="answer-footer2">
+                    © 2022 E-pick
+                </footer>
             @endif
         </div>
         <script src="{{ asset('tweets.js') }}"></script>
     </div>
 
-    <footer class="answer-footer">
-        © 2022 E-pick
-    </footer>
 </body>
 @endsection

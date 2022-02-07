@@ -35,6 +35,7 @@
                             © 2022 E-pick
                         </footer>
                 @else
+                    @if((count($answered_questions) != 0 && count($unanswered_questions) == 0) or (count($answered_questions) == 0 && count($unanswered_questions) != 0))
                     <div class="post-messages">
                         <div class="post-image2">
                             <img src="{{ asset('post-close.png') }}" alt="" class="stop">
@@ -54,6 +55,7 @@
                             </div>
                         </div>
                     </div>
+                    @endif
                     @if(count($answered_questions) != 0)
                         <div class="answered">
                             <div class="title">返答済の質問</div>
@@ -73,7 +75,8 @@
                                 @endforeach
                             </div>
                         </div>
-                    @else
+                    @endif
+                    @if(count($unanswered_questions) != 0)
                         <div class="unanswered">
                             <div class="title">未返答の質問</div>
                             <div class="big">
